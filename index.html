@@ -862,13 +862,17 @@
           : '<i class="fa-solid fa-xmark"></i>';
       });
 
-      mobileMenu?.querySelectorAll("a").forEach((link) => {
-        link.addEventListener("click", () => {
-          mobileMenu.classList.add("hidden");
-          mobileMenuBtn?.setAttribute("aria-expanded", "false");
-          if (mobileMenuBtn) mobileMenuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
-        });
-      });
+      document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && mobileMenu && !mobileMenu.classList.contains("hidden")) {
+    mobileMenu.classList.add("hidden");
+    mobileMenuBtn?.setAttribute("aria-expanded", "false");
+
+    if (mobileMenuBtn) {
+      mobileMenuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+      mobileMenuBtn.focus();
+    }
+  }
+});
 
 
       $("searchFocusBtn")?.addEventListener("click", () => {
