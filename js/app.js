@@ -163,9 +163,11 @@ function getFilteredCountries() {
       const capital = (country.capital || []).join(" ");
       const subregion = country.subregion || "";
       const regionName = country.region || "";
+      const officialName = country.officialName || "";
+const countryCode = country.code || "";
 
-      return [name, capital, subregion, regionName]
-        .some((value) => value.toLowerCase().includes(search));
+      return [name, officialName, countryCode, capital, subregion, regionName]
+  .some((value) => value.toLowerCase().includes(search));
     });
   }
 
