@@ -526,7 +526,7 @@
             </div>
             <div>
               <label for="diaryPhoto" class="mb-2 block text-xs font-semibold uppercase tracking-wider">Add a photo (optional)</label>
-              <input id="diaryPhoto" type="file" accept="image/*" class="w-full text-sm file:mr-4 file:rounded-full file:border-0 file:bg-sand file:px-4 file:py-2 file:text-xs file:font-semibold">
+            <input id="diaryPhoto" type="file" accept="image/jpeg,image/png,image/webp" class="w-full text-sm file:mr-4 file:rounded-full file:border-0 file:bg-sand file:px-4 file:py-2 file:text-xs file:font-semibold">
               <p class="mt-1 text-xs text-ink/50 dark:text-slate-400">Choose a small image for best results.</p>
             </div>
             <div>
@@ -1041,6 +1041,16 @@
             photo,
             createdAt: new Date().toISOString()
           });
+
+          if (file && !["image/jpeg", "image/png", "image/webp"].includes(file.type)) {
+  $("diaryMessage").textContent = "Please choose a JPG, PNG or WebP image.";
+  return;
+}
+
+if (file && file.size > 700 * 1024) {
+  $("diaryMessage").textContent = "Please choose a photo smaller than 700 KB.";
+  return;
+}
 
           if (!writeStore(DIARY_KEY, entries)) {
             $("diaryMessage").textContent = "Storage is full. Try a smaller photo or remove older memories.";
