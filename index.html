@@ -832,15 +832,15 @@
   }
 }
 
-      function writeStore(key, value) {
-        try {
-          localStorage.setItem(key, JSON.stringify(value));
-          return true;
-        } catch (error) {
-          return false;
-        }
-      }
-
+     function writeStore(key, value) {
+  try {
+    localStorage.setItem(key, JSON.stringify(value));
+    return true;
+  } catch (error) {
+    console.error("Storage save error:", error);
+    return false;
+  }
+}
       function escapeHTML(value) {
         return String(value ?? "").replace(/[&<>"']/g, (char) => ({
           "&": "&amp;",
