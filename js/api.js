@@ -49,13 +49,9 @@ function formatCountry(country, populationData) {
         landlocked: country.landlocked ?? false
     };
 }
-
 export async function fetchCountries() {
     try {
-        const [countryResponse, populationResponse] = await Promise.all([
-            fetch(API_URL),
-            fetch(POPULATION_URL)
-        ]);
+        const countryResponse = await fetch(API_URL);
 
         if (!countryResponse.ok) {
             throw new Error("Country data could not load");
@@ -65,9 +61,17 @@ export async function fetchCountries() {
 
         let populationData = [];
 
-        if (populationResponse.ok) {
-            const populationResult = await populationResponse.json();
-            populationData = populationResult.data || [];
+        try {
+            const populationResponse = await fetch(POPULATION_URL);
+
+            if (populationResponse.ok) {
+                const populationResult = await populationResponse.json();
+                populationData = populationResult.data || [];
+            }
+        } catch (populationError) {
+            console.warn(
+                "Population data unavailable. Loading countries without it."
+            );
         }
 
         return countries
@@ -76,6 +80,7 @@ export async function fetchCountries() {
 
     } catch (error) {
         console.error("HeyRomies API Error:", error);
+
         throw new Error(
             "Country data load nahi hua. Internet check karke Retry karo."
         );
