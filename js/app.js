@@ -414,9 +414,10 @@ function showCountryDetails(country) {
     <div class="grid gap-6 sm:grid-cols-2">
       <div>
         ${country.flag
-      ? `<img src="${escapeHTML(country.flag)}"
-                alt="${escapeHTML(country.name)} flag"
-                class="mb-5 max-h-48 w-full object-contain">`
+      ? `<<img src="${escapeHTML(country.flag)}"
+     alt="${escapeHTML(country.name)} flag"
+     onerror="this.style.display='none'"
+     class="mb-5 max-h-48 w-full object-contain">`
       : ""
     }
 
