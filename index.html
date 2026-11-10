@@ -818,13 +818,19 @@
       const $ = (id) => document.getElementById(id);
 
       function readStore(key, fallback = []) {
-        try {
-          const value = JSON.parse(localStorage.getItem(key));
-          return value ?? fallback;
-        } catch (error) {
-          return fallback;
-        }
-      }
+  try {
+    const savedData = localStorage.getItem(key);
+
+    if (!savedData) return fallback;
+
+    const value = JSON.parse(savedData);
+
+    return Array.isArray(value) ? value : fallback;
+  } catch (error) {
+    console.error("Storage read error:", error);
+    return fallback;
+  }
+}
 
       function writeStore(key, value) {
         try {
