@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="HeyRomies — Collect moments, not just miles. Discover extraordinary destinations, cultures and adventures around the world.">
+  <meta name="description"
+    content="HeyRomies — Collect moments, not just miles. Discover extraordinary destinations, cultures and adventures around the world.">
   <title>HeyRomies — Collect Moments, Not Just Miles</title>
 
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23193A2E'/%3E%3Cpath d='M50 12 L57 38 L83 25 L65 47 L91 55 L63 61 L73 88 L50 69 L27 88 L37 61 L9 55 L35 47 L17 25 L43 38 Z' fill='%23D99A72'/%3E%3Ccircle cx='50' cy='52' r='10' fill='%23F4EBDD'/%3E%3C/svg%3E">
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23193A2E'/%3E%3Cpath d='M50 12 L57 38 L83 25 L65 47 L91 55 L63 61 L73 88 L50 69 L27 88 L37 61 L9 55 L35 47 L17 25 L43 38 Z' fill='%23D99A72'/%3E%3Ccircle cx='50' cy='52' r='10' fill='%23F4EBDD'/%3E%3C/svg%3E">
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
   <script>
@@ -38,99 +43,137 @@
       if (localStorage.getItem("heyromies_theme") === "dark") {
         document.documentElement.classList.add("dark");
       }
-    } catch (error) {}
+    } catch (error) { }
   </script>
 
   <style>
-    html { scroll-behavior: smooth; }
-    body { font-family: "DM Sans", sans-serif; }
-    h1, h2, h3, .editorial { font-family: "Cormorant Garamond", serif; }
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+    }
+
+    h1,
+    h2,
+    h3,
+    .editorial {
+      font-family: "Cormorant Garamond", serif;
+    }
+
     .paper-texture {
       background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
     }
+
     .hero-image {
       background-image:
-        linear-gradient(90deg, rgba(20,43,33,.78), rgba(20,43,33,.05)),
+        linear-gradient(90deg, rgba(20, 43, 33, .78), rgba(20, 43, 33, .05)),
         url("./images/hero-mountains.jpg");
       background-position: center;
       background-size: cover;
     }
-    .destination-image { transition: transform .6s ease; }
-    .destination-card:hover .destination-image { transform: scale(1.05); }
-    .text-balance { text-wrap: balance; }
-    button, a { -webkit-tap-highlight-color: transparent; }
+
+    .destination-image {
+      transition: transform .6s ease;
+    }
+
+    .destination-card:hover .destination-image {
+      transform: scale(1.05);
+    }
+
+    .text-balance {
+      text-wrap: balance;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
   </style>
 </head>
 
 <body class="paper-texture bg-paper text-ink transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100">
 
-  
-<header class="sticky top-0 z-40 border-b border-forest/15 bg-paper/95 backdrop-blur-lg dark:border-slate-700 dark:bg-slate-950/95">
 
-  <nav class="mx-auto flex max-w-7xl items-center justify-between gap-2 px-3 py-3 sm:gap-4 sm:px-5 sm:py-4 lg:px-8">
+  <header
+    class="sticky top-0 z-40 border-b border-forest/15 bg-paper/95 backdrop-blur-lg dark:border-slate-700 dark:bg-slate-950/95">
 
-    <a href="#home" class="flex min-w-0 shrink items-center gap-2 sm:gap-2.5" aria-label="HeyRomies home">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between gap-2 px-3 py-3 sm:gap-4 sm:px-5 sm:py-4 lg:px-8">
 
-      <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-forest text-[#D99A72] shadow-sm dark:bg-[#D99A72] dark:text-forest sm:h-11 sm:w-11" aria-hidden="true">
-        <svg viewBox="0 0 100 100" class="h-7 w-7 sm:h-8 sm:w-8" fill="currentColor">
-          <path d="M50 5 59 34 86 19 68 44 96 52 68 60 79 91 50 70 21 91 32 60 4 52 32 44 14 19 41 34Z"/>
-          <circle cx="50" cy="52" r="10" fill="#F4EBDD" class="dark:fill-[#193A2E]"/>
-          <path d="M50 28v12M50 64v12M27 52h12M61 52h12" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
-        </svg>
-      </span>
+      <a href="#home" class="flex min-w-0 shrink items-center gap-2 sm:gap-2.5" aria-label="HeyRomies home">
 
-      <span class="min-w-0">
-        <span class="block whitespace-nowrap text-xl font-semibold leading-none tracking-[.04em] text-forest dark:text-paper sm:text-3xl sm:tracking-[.08em]">HeyRomies</span>
-        <span class="mt-1 hidden whitespace-nowrap text-[9px] uppercase tracking-[.2em] text-forest/70 dark:text-slate-400 sm:block">Collect moments, not just miles</span>
-      </span>
-    </a>
+        <span
+          class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-forest text-[#D99A72] shadow-sm dark:bg-[#D99A72] dark:text-forest sm:h-11 sm:w-11"
+          aria-hidden="true">
+          <svg viewBox="0 0 100 100" class="h-7 w-7 sm:h-8 sm:w-8" fill="currentColor">
+            <path d="M50 5 59 34 86 19 68 44 96 52 68 60 79 91 50 70 21 91 32 60 4 52 32 44 14 19 41 34Z" />
+            <circle cx="50" cy="52" r="10" fill="#F4EBDD" class="dark:fill-[#193A2E]" />
+            <path d="M50 28v12M50 64v12M27 52h12M61 52h12" stroke="currentColor" stroke-width="3"
+              stroke-linecap="round" />
+          </svg>
+        </span>
 
-    <div class="hidden items-center gap-6 text-sm md:flex lg:gap-8">
-    
-      <a href="#destinations" class="transition hover:text-terracotta">Destinations</a>
-      <a href="#adventures" class="transition hover:text-terracotta">Adventures</a>
-      <a href="#culture" class="transition hover:text-terracotta">Culture</a>
-      <a href="#about" class="transition hover:text-terracotta">Our Story</a>
-    </div>
-
-    <div class="flex shrink-0 items-center gap-0.5 sm:gap-2">
-
-      <button id="searchFocusBtn" type="button" class="flex h-9 w-9 items-center justify-center rounded-full hover:bg-forest/10 sm:h-10 sm:w-10" aria-label="Focus country search">
-        <i class="fa-solid fa-magnifying-glass"></i>
-      </button>
-
-      <button id="themeToggle" type="button" class="flex h-9 w-9 items-center justify-center rounded-full hover:bg-forest/10 sm:h-10 sm:w-10" aria-label="Toggle dark mode">
-        <i id="themeIcon" class="fa-solid fa-moon"></i>
-      </button>
-
-      <a href="#plan" class="hidden items-center gap-2 rounded-full bg-forest px-3 py-2 text-xs font-semibold text-paper transition hover:bg-terracotta md:inline-flex lg:gap-3 lg:px-5 lg:py-3">
-        <span>Plan Your Trip</span> <i class="fa-solid fa-arrow-right"></i>
+        <span class="min-w-0">
+          <span
+            class="block whitespace-nowrap text-xl font-semibold leading-none tracking-[.04em] text-forest dark:text-paper sm:text-3xl sm:tracking-[.08em]">HeyRomies</span>
+          <span
+            class="mt-1 hidden whitespace-nowrap text-[9px] uppercase tracking-[.2em] text-forest/70 dark:text-slate-400 sm:block">Collect
+            moments, not just miles</span>
+        </span>
       </a>
 
-      <button id="mobileMenuBtn" type="button" class="flex h-9 w-9 items-center justify-center rounded-full hover:bg-forest/10 md:hidden sm:h-10 sm:w-10" aria-label="Open navigation" aria-expanded="false">
-        <i class="fa-solid fa-bars"></i>
-      </button>
+      <div class="hidden items-center gap-6 text-sm md:flex lg:gap-8">
 
+        <a href="#destinations" class="transition hover:text-terracotta">Destinations</a>
+        <a href="#adventures" class="transition hover:text-terracotta">Adventures</a>
+        <a href="#culture" class="transition hover:text-terracotta">Culture</a>
+        <a href="#about" class="transition hover:text-terracotta">Our Story</a>
+      </div>
+
+      <div class="flex shrink-0 items-center gap-0.5 sm:gap-2">
+
+        <button id="searchFocusBtn" type="button"
+          class="flex h-9 w-9 items-center justify-center rounded-full hover:bg-forest/10 sm:h-10 sm:w-10"
+          aria-label="Focus country search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+
+        <button id="themeToggle" type="button"
+          class="flex h-9 w-9 items-center justify-center rounded-full hover:bg-forest/10 sm:h-10 sm:w-10"
+          aria-label="Toggle dark mode">
+          <i id="themeIcon" class="fa-solid fa-moon"></i>
+        </button>
+
+        <a href="#plan"
+          class="hidden items-center gap-2 rounded-full bg-forest px-3 py-2 text-xs font-semibold text-paper transition hover:bg-terracotta md:inline-flex lg:gap-3 lg:px-5 lg:py-3">
+          <span>Plan Your Trip</span> <i class="fa-solid fa-arrow-right"></i>
+        </a>
+
+        <button id="mobileMenuBtn" type="button"
+          class="flex h-9 w-9 items-center justify-center rounded-full hover:bg-forest/10 md:hidden sm:h-10 sm:w-10"
+          aria-label="Toggle navigation menu" aria-controls="mobileMenu" aria-expanded="false">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+      </div>
+    </nav>
+
+    <div id="mobileMenu" class="hidden border-t border-forest/15 px-5 py-4 dark:border-slate-700 md:hidden">
+      <div class="flex flex-col gap-4 text-sm">
+        <a href="#destinations">Destinations</a>
+        <a href="#adventures">Adventures</a>
+        <a href="#culture">Culture</a>
+        <a href="#explorer">Explore Countries</a>
+        <a href="#passport">Travel Passport</a>
+        <a href="#hidden-gems">Hidden Gems</a>
+        <a href="#diary">Travel Diary</a>
+        <a href="#tools">Explorer Tools</a>
+        <a href="#plan">Plan Your Trip</a>
+      </div>
     </div>
-  </nav>
 
-  <div id="mobileMenu" class="hidden border-t border-forest/15 px-5 py-4 dark:border-slate-700 md:hidden">
-    <div class="flex flex-col gap-4 text-sm">
-      <a href="#destinations">Destinations</a>
-      <a href="#adventures">Adventures</a>
-      <a href="#culture">Culture</a>
-      <a href="#explorer">Explore Countries</a>
-      <a href="#passport">Travel Passport</a>
-      <a href="#hidden-gems">Hidden Gems</a>
-      <a href="#wishlist">Wishlist</a>
-      <a href="#diary">Travel Diary</a>
-      <a href="#tools">Explorer Tools</a>
-      <a href="#about">Our Story</a>
-      <a href="#plan">Plan Your Trip</a>
-    </div>
-  </div>
-
-</header>
+  </header>
 
 
   <main id="home">
@@ -138,19 +181,23 @@
 
     <section class="relative min-h-[660px] overflow-hidden bg-forest text-paper sm:min-h-[720px]">
       <div class="hero-image absolute inset-0"></div>
-      <div class="relative mx-auto flex min-h-[660px] max-w-7xl flex-col justify-center px-6 py-20 sm:min-h-[720px] lg:px-12">
+      <div
+        class="relative mx-auto flex min-h-[660px] max-w-7xl flex-col justify-center px-6 py-20 sm:min-h-[720px] lg:px-12">
         <p class="mb-6 text-xs font-semibold uppercase tracking-[.3em] text-paper/80">Explore a more meaningful way</p>
         <h1 class="max-w-3xl text-balance text-6xl font-medium leading-[.88] sm:text-7xl lg:text-8xl xl:text-9xl">
           A Deeper<br>Way to <span class="italic text-[#D99A72]">Travel.</span>
         </h1>
         <p class="mt-7 max-w-md text-sm leading-7 text-paper/85 sm:text-base">
-          Old souls. New adventures. Discover extraordinary places, meet different cultures, and collect stories worth telling.
+          Old souls. New adventures. Discover extraordinary places, meet different cultures, and collect stories worth
+          telling.
         </p>
         <div class="mt-8 flex flex-wrap gap-3">
-          <a href="#destinations" class="inline-flex items-center gap-4 rounded-full bg-paper px-6 py-3.5 text-sm font-semibold text-forest transition hover:bg-[#D99A72]">
+          <a href="#destinations"
+            class="inline-flex items-center gap-4 rounded-full bg-paper px-6 py-3.5 text-sm font-semibold text-forest transition hover:bg-[#D99A72]">
             Explore the World <i class="fa-solid fa-arrow-right"></i>
           </a>
-          <a href="#adventures" class="inline-flex items-center gap-3 rounded-full border border-paper/60 px-6 py-3.5 text-sm text-paper transition hover:bg-paper/10">
+          <a href="#adventures"
+            class="inline-flex items-center gap-3 rounded-full border border-paper/60 px-6 py-3.5 text-sm text-paper transition hover:bg-paper/10">
             <i class="fa-solid fa-compass"></i> Find Your Adventure
           </a>
         </div>
@@ -168,7 +215,8 @@
       <div class="flex flex-wrap items-end justify-between gap-5">
         <div>
           <p class="text-[10px] font-semibold uppercase tracking-[.3em] text-terracotta">Postcards from everywhere</p>
-          <h2 class="mt-3 text-5xl leading-none sm:text-6xl">Somewhere <span class="italic text-terracotta">wonderful.</span></h2>
+          <h2 class="mt-3 text-5xl leading-none sm:text-6xl">Somewhere <span
+              class="italic text-terracotta">wonderful.</span></h2>
         </div>
         <a href="#explorer" class="text-sm font-semibold text-forest hover:text-terracotta dark:text-paper">
           All destinations <i class="fa-solid fa-arrow-right ml-2"></i>
@@ -177,7 +225,8 @@
 
       <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         <a href="#explorer" class="destination-card group relative h-[390px] overflow-hidden rounded-sm bg-sand">
-         <img src="./images/italy.jpg" alt="Colourful coastal villages of Italy" class="destination-image absolute inset-0 h-full w-full object-cover">
+          <img src="./images/italy.jpg" alt="Colourful coastal villages of Italy"
+            class="destination-image absolute inset-0 h-full w-full object-cover">
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent"></div>
           <div class="absolute bottom-0 p-6 text-white">
             <p class="text-[10px] uppercase tracking-[.25em]">Europe · Coastal escapes</p>
@@ -187,7 +236,8 @@
         </a>
 
         <a href="#explorer" class="destination-card group relative h-[390px] overflow-hidden rounded-sm bg-sand">
-          <img src="./images/kyoto.jpg" alt="Traditional streets of Kyoto, Japan" class="destination-image absolute inset-0 h-full w-full object-cover">
+          <img src="./images/kyoto.jpg" alt="Traditional streets of Kyoto, Japan"
+            class="destination-image absolute inset-0 h-full w-full object-cover">
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent"></div>
           <div class="absolute bottom-0 p-6 text-white">
             <p class="text-[10px] uppercase tracking-[.25em]">Asia · Cultural journeys</p>
@@ -196,8 +246,10 @@
           </div>
         </a>
 
-        <a href="#explorer" class="destination-card group relative h-[390px] overflow-hidden rounded-sm bg-sand sm:col-span-2 lg:col-span-1">
-          <img src="./images/hero-mountains.jpg" alt="Majestic mountain range" class="destination-image absolute inset-0 h-full w-full object-cover">
+        <a href="#explorer"
+          class="destination-card group relative h-[390px] overflow-hidden rounded-sm bg-sand sm:col-span-2 lg:col-span-1">
+          <img src="./images/hero-mountains.jpg" alt="Majestic mountain range"
+            class="destination-image absolute inset-0 h-full w-full object-cover">
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent"></div>
           <div class="absolute bottom-0 p-6 text-white">
             <p class="text-[10px] uppercase tracking-[.25em]">The wild · Mountain escapes</p>
@@ -214,10 +266,12 @@
         <div class="grid gap-10 md:grid-cols-2 md:items-end">
           <div>
             <p class="text-[10px] uppercase tracking-[.3em] text-[#D99A72]">For the wild at heart</p>
-            <h2 class="mt-4 text-5xl leading-[.95] sm:text-6xl lg:text-7xl">Take the <span class="italic text-[#D99A72]">scenic route.</span></h2>
+            <h2 class="mt-4 text-5xl leading-[.95] sm:text-6xl lg:text-7xl">Take the <span
+                class="italic text-[#D99A72]">scenic route.</span></h2>
           </div>
           <p class="max-w-lg text-sm leading-7 text-paper/75">
-            Sometimes the best memories happen when you leave the familiar behind. Choose a trail, follow the wind and let the unexpected find you.
+            Sometimes the best memories happen when you leave the familiar behind. Choose a trail, follow the wind and
+            let the unexpected find you.
           </p>
         </div>
 
@@ -225,22 +279,26 @@
           <article class="border-t border-paper/30 pt-5">
             <i class="fa-solid fa-mountain-sun text-2xl text-[#D99A72]"></i>
             <h3 class="mt-5 text-3xl">Mountain Trails</h3>
-            <p class="mt-2 text-sm leading-6 text-paper/70">Find quiet paths, sunrise summits and views worth the climb.</p>
+            <p class="mt-2 text-sm leading-6 text-paper/70">Find quiet paths, sunrise summits and views worth the climb.
+            </p>
           </article>
           <article class="border-t border-paper/30 pt-5">
             <i class="fa-solid fa-water text-2xl text-[#D99A72]"></i>
             <h3 class="mt-5 text-3xl">Ocean Days</h3>
-            <p class="mt-2 text-sm leading-6 text-paper/70">Swim in clear waters, wander coastlines and chase sunsets.</p>
+            <p class="mt-2 text-sm leading-6 text-paper/70">Swim in clear waters, wander coastlines and chase sunsets.
+            </p>
           </article>
           <article class="border-t border-paper/30 pt-5">
             <i class="fa-solid fa-person-hiking text-2xl text-[#D99A72]"></i>
             <h3 class="mt-5 text-3xl">Wild Escapes</h3>
-            <p class="mt-2 text-sm leading-6 text-paper/70">Explore forests, national parks and beautiful open spaces.</p>
+            <p class="mt-2 text-sm leading-6 text-paper/70">Explore forests, national parks and beautiful open spaces.
+            </p>
           </article>
           <article class="border-t border-paper/30 pt-5">
             <i class="fa-solid fa-compass text-2xl text-[#D99A72]"></i>
             <h3 class="mt-5 text-3xl">Road Trips</h3>
-            <p class="mt-2 text-sm leading-6 text-paper/70">Take the long way around and stop wherever curiosity leads.</p>
+            <p class="mt-2 text-sm leading-6 text-paper/70">Take the long way around and stop wherever curiosity leads.
+            </p>
           </article>
         </div>
       </div>
@@ -250,34 +308,46 @@
     <section id="culture" class="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-12 lg:py-24">
       <div class="grid gap-10 md:grid-cols-2 md:items-center">
         <div class="overflow-hidden">
-          <img src="./images/india-heritage.jpg" alt="Historic architecture and cultural heritage in India" class="h-[420px] w-full object-cover sm:h-[520px]">
+          <img src="./images/india-heritage.jpg" alt="Historic architecture and cultural heritage in India"
+            class="h-[420px] w-full object-cover sm:h-[520px]">
         </div>
         <div class="md:pl-6">
           <p class="text-[10px] font-semibold uppercase tracking-[.3em] text-terracotta">People, places, traditions</p>
-          <h2 class="mt-4 text-5xl leading-[.95] sm:text-6xl lg:text-7xl">Travel with <span class="italic text-terracotta">curiosity.</span></h2>
+          <h2 class="mt-4 text-5xl leading-[.95] sm:text-6xl lg:text-7xl">Travel with <span
+              class="italic text-terracotta">curiosity.</span></h2>
           <p class="mt-6 text-sm leading-7 text-ink/75 dark:text-slate-300 sm:text-base">
-            Every place has a story. Taste the local food, learn the old traditions, listen to the music and take time to understand the people who call it home.
+            Every place has a story. Taste the local food, learn the old traditions, listen to the music and take time
+            to understand the people who call it home.
           </p>
           <div class="mt-8 space-y-5">
             <div class="flex gap-4">
-              <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-sand/70 text-forest dark:bg-slate-800 dark:text-paper"><i class="fa-solid fa-utensils"></i></span>
+              <span
+                class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-sand/70 text-forest dark:bg-slate-800 dark:text-paper"><i
+                  class="fa-solid fa-utensils"></i></span>
               <div>
                 <h3 class="text-2xl">Local Flavours</h3>
-                <p class="mt-1 text-sm text-ink/70 dark:text-slate-400">Discover traditional dishes and neighbourhood favourites.</p>
+                <p class="mt-1 text-sm text-ink/70 dark:text-slate-400">Discover traditional dishes and neighbourhood
+                  favourites.</p>
               </div>
             </div>
             <div class="flex gap-4">
-              <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-sand/70 text-forest dark:bg-slate-800 dark:text-paper"><i class="fa-solid fa-landmark"></i></span>
+              <span
+                class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-sand/70 text-forest dark:bg-slate-800 dark:text-paper"><i
+                  class="fa-solid fa-landmark"></i></span>
               <div>
                 <h3 class="text-2xl">Living History</h3>
-                <p class="mt-1 text-sm text-ink/70 dark:text-slate-400">Explore architecture, heritage sites and stories passed down.</p>
+                <p class="mt-1 text-sm text-ink/70 dark:text-slate-400">Explore architecture, heritage sites and stories
+                  passed down.</p>
               </div>
             </div>
             <div class="flex gap-4">
-              <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-sand/70 text-forest dark:bg-slate-800 dark:text-paper"><i class="fa-solid fa-people-group"></i></span>
+              <span
+                class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-sand/70 text-forest dark:bg-slate-800 dark:text-paper"><i
+                  class="fa-solid fa-people-group"></i></span>
               <div>
                 <h3 class="text-2xl">Local Connections</h3>
-                <p class="mt-1 text-sm text-ink/70 dark:text-slate-400">Meet people, respect local customs and travel thoughtfully.</p>
+                <p class="mt-1 text-sm text-ink/70 dark:text-slate-400">Meet people, respect local customs and travel
+                  thoughtfully.</p>
               </div>
             </div>
           </div>
@@ -290,25 +360,34 @@
       <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
         <div class="flex flex-wrap items-end justify-between gap-5">
           <div>
-            <p class="text-[10px] font-semibold uppercase tracking-[.3em] text-terracotta">Your world, at your fingertips</p>
-            <h2 class="mt-3 text-5xl leading-none sm:text-6xl lg:text-7xl">The Country <span class="italic text-terracotta">Explorer.</span></h2>
+            <p class="text-[10px] font-semibold uppercase tracking-[.3em] text-terracotta">Your world, at your
+              fingertips</p>
+            <h2 class="mt-3 text-5xl leading-none sm:text-6xl lg:text-7xl">The Country <span
+                class="italic text-terracotta">Explorer.</span></h2>
             <p class="mt-4 max-w-xl text-sm leading-7 text-ink/70 dark:text-slate-300">
               Search countries, discover fascinating facts and find your next destination.
             </p>
           </div>
           <div class="flex flex-wrap gap-2">
-            <button id="allCountriesBtn" class="rounded-full bg-forest px-5 py-3 text-xs font-semibold text-paper">All Countries</button>
-            <button id="showFavoritesBtn" class="rounded-full border border-forest/30 px-5 py-3 text-xs font-semibold hover:bg-forest/10 dark:border-slate-600"><i class="fa-regular fa-heart mr-2"></i>My Wishlist</button>
-            <button id="refreshBtn" class="flex h-10 w-10 items-center justify-center rounded-full border border-forest/30 hover:bg-forest/10 dark:border-slate-600" aria-label="Refresh countries"><i class="fa-solid fa-rotate"></i></button>
+            <button id="allCountriesBtn" class="rounded-full bg-forest px-5 py-3 text-xs font-semibold text-paper">All
+              Countries</button>
+            <button id="showFavoritesBtn"
+              class="rounded-full border border-forest/30 px-5 py-3 text-xs font-semibold hover:bg-forest/10 dark:border-slate-600"><i
+                class="fa-regular fa-heart mr-2"></i>My Wishlist</button>
+            <button id="refreshBtn"
+              class="flex h-10 w-10 items-center justify-center rounded-full border border-forest/30 hover:bg-forest/10 dark:border-slate-600"
+              aria-label="Refresh countries"><i class="fa-solid fa-rotate"></i></button>
           </div>
         </div>
 
         <div class="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           <div class="relative">
             <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-ink/50"></i>
-            <input id="searchInput" type="search" placeholder="Search a country..." class="w-full rounded-sm border border-forest/20 bg-paper py-3.5 pl-11 pr-4 text-sm outline-none focus:border-terracotta dark:border-slate-600 dark:bg-slate-950" />
+            <input id="searchInput" type="search" placeholder="Search a country..."
+              class="w-full rounded-sm border border-forest/20 bg-paper py-3.5 pl-11 pr-4 text-sm outline-none focus:border-terracotta dark:border-slate-600 dark:bg-slate-950" />
           </div>
-          <select id="regionFilter" class="w-full rounded-sm border border-forest/20 bg-paper px-4 py-3.5 text-sm outline-none focus:border-terracotta dark:border-slate-600 dark:bg-slate-950">
+          <select id="regionFilter"
+            class="w-full rounded-sm border border-forest/20 bg-paper px-4 py-3.5 text-sm outline-none focus:border-terracotta dark:border-slate-600 dark:bg-slate-950">
             <option value="all">All regions</option>
             <option value="Africa">Africa</option>
             <option value="Americas">Americas</option>
@@ -316,12 +395,14 @@
             <option value="Europe">Europe</option>
             <option value="Oceania">Oceania</option>
           </select>
-          <select id="sortSelect" class="w-full rounded-sm border border-forest/20 bg-paper px-4 py-3.5 text-sm outline-none focus:border-terracotta dark:border-slate-600 dark:bg-slate-950">
+          <select id="sortSelect"
+            class="w-full rounded-sm border border-forest/20 bg-paper px-4 py-3.5 text-sm outline-none focus:border-terracotta dark:border-slate-600 dark:bg-slate-950">
             <option value="name">Sort: Name A–Z</option>
             <option value="population">Sort: Population</option>
             <option value="area">Sort: Area</option>
           </select>
-          <button id="clearFiltersBtn" class="rounded-sm border border-forest/25 px-4 py-3.5 text-sm transition hover:bg-forest/10 dark:border-slate-600">
+          <button id="clearFiltersBtn"
+            class="rounded-sm border border-forest/25 px-4 py-3.5 text-sm transition hover:bg-forest/10 dark:border-slate-600">
             <i class="fa-solid fa-filter-circle-xmark mr-2"></i>Clear filters
           </button>
         </div>
@@ -333,7 +414,8 @@
           <p class="mt-4 text-sm">Discovering the world...</p>
         </div>
 
-        <div id="errorState" class="hidden rounded-sm border border-red-300 bg-red-50 p-6 text-center text-sm text-red-800">
+        <div id="errorState"
+          class="hidden rounded-sm border border-red-300 bg-red-50 p-6 text-center text-sm text-red-800">
           <i class="fa-solid fa-triangle-exclamation mr-2"></i>
           Countries could not be loaded. Please check your internet connection and try again.
           <button id="retryCountriesBtn" class="ml-2 font-bold underline">Retry</button>
@@ -348,15 +430,18 @@
         <div id="countryGrid" class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"></div>
 
         <div class="mt-10 text-center">
-          <button id="exploreMoreBtn" class="rounded-full bg-forest px-7 py-4 text-sm font-semibold text-paper transition hover:bg-terracotta">
+          <button id="exploreMoreBtn"
+            class="rounded-full bg-forest px-7 py-4 text-sm font-semibold text-paper transition hover:bg-terracotta">
             Explore More Countries <i class="fa-solid fa-arrow-down ml-2"></i>
           </button>
         </div>
 
-        <div id="compareBar" class="fixed bottom-4 left-1/2 z-40 hidden w-[calc(100%-2rem)] max-w-3xl -translate-x-1/2 items-center justify-between gap-4 rounded-sm bg-forest p-4 text-paper shadow-2xl">
+        <div id="compareBar"
+          class="fixed bottom-4 left-1/2 z-40 hidden w-[calc(100%-2rem)] max-w-3xl -translate-x-1/2 items-center justify-between gap-4 rounded-sm bg-forest p-4 text-paper shadow-2xl">
           <p id="compareCount" class="text-sm">0 countries selected</p>
           <div class="flex gap-2">
-            <button id="compareBtn" class="rounded-full bg-paper px-4 py-2 text-xs font-semibold text-forest">Compare</button>
+            <button id="compareBtn"
+              class="rounded-full bg-paper px-4 py-2 text-xs font-semibold text-forest">Compare</button>
             <button id="clearCompareBtn" class="rounded-full border border-paper/50 px-4 py-2 text-xs">Clear</button>
           </div>
         </div>
@@ -364,25 +449,33 @@
     </section>
 
 
-    <div id="detailModal" class="fixed inset-0 z-50 hidden items-center justify-center overflow-y-auto bg-black/70 p-4" role="dialog" aria-modal="true" aria-label="Country details">
-      <div class="my-auto max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-sm bg-paper p-6 text-ink shadow-2xl dark:bg-slate-900 dark:text-paper sm:p-8">
+    <div id="detailModal" class="fixed inset-0 z-50 hidden items-center justify-center overflow-y-auto bg-black/70 p-4"
+      role="dialog" aria-modal="true" aria-label="Country details">
+      <div
+        class="my-auto max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-sm bg-paper p-6 text-ink shadow-2xl dark:bg-slate-900 dark:text-paper sm:p-8">
         <div class="flex items-start justify-between gap-4">
           <div>
             <p class="text-[10px] uppercase tracking-[.25em] text-terracotta">Your field notes</p>
             <h2 id="detailCountryName" class="mt-2 text-4xl sm:text-5xl">Country details</h2>
           </div>
-          <button id="closeDetailModal" class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full hover:bg-forest/10" aria-label="Close country details"><i class="fa-solid fa-xmark text-xl"></i></button>
+          <button id="closeDetailModal"
+            class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full hover:bg-forest/10"
+            aria-label="Close country details"><i class="fa-solid fa-xmark text-xl"></i></button>
         </div>
         <div id="detailContent" class="mt-6"></div>
       </div>
     </div>
 
 
-    <div id="compareModal" class="fixed inset-0 z-50 hidden items-center justify-center overflow-y-auto bg-black/70 p-4" role="dialog" aria-modal="true" aria-label="Compare countries">
-      <div class="my-auto max-h-[90vh] w-full max-w-4xl overflow-y-auto rounded-sm bg-paper p-6 text-ink shadow-2xl dark:bg-slate-900 dark:text-paper sm:p-8">
+    <div id="compareModal" class="fixed inset-0 z-50 hidden items-center justify-center overflow-y-auto bg-black/70 p-4"
+      role="dialog" aria-modal="true" aria-label="Compare countries">
+      <div
+        class="my-auto max-h-[90vh] w-full max-w-4xl overflow-y-auto rounded-sm bg-paper p-6 text-ink shadow-2xl dark:bg-slate-900 dark:text-paper sm:p-8">
         <div class="flex items-center justify-between gap-4">
           <h2 class="text-4xl sm:text-5xl">Side by <span class="italic text-terracotta">side.</span></h2>
-          <button id="closeCompareModal" class="flex h-10 w-10 items-center justify-center rounded-full hover:bg-forest/10" aria-label="Close comparison"><i class="fa-solid fa-xmark text-xl"></i></button>
+          <button id="closeCompareModal"
+            class="flex h-10 w-10 items-center justify-center rounded-full hover:bg-forest/10"
+            aria-label="Close comparison"><i class="fa-solid fa-xmark text-xl"></i></button>
         </div>
         <div id="compareContent" class="mt-6 overflow-x-auto"></div>
       </div>
@@ -393,9 +486,11 @@
       <div class="grid gap-10 md:grid-cols-2 md:items-center">
         <div>
           <p class="text-[10px] font-semibold uppercase tracking-[.3em] text-terracotta">Your journeys, collected</p>
-          <h2 class="mt-4 text-5xl leading-none sm:text-6xl lg:text-7xl">Your Travel <span class="italic text-terracotta">Passport.</span></h2>
+          <h2 class="mt-4 text-5xl leading-none sm:text-6xl lg:text-7xl">Your Travel <span
+              class="italic text-terracotta">Passport.</span></h2>
           <p class="mt-5 max-w-lg text-sm leading-7 text-ink/70 dark:text-slate-300">
-            Every country has a story. Keep track of the places you've visited and celebrate every little adventure along the way.
+            Every country has a story. Keep track of the places you've visited and celebrate every little adventure
+            along the way.
           </p>
           <div class="mt-8 grid grid-cols-2 gap-4">
             <div class="border border-forest/20 p-5 dark:border-slate-700">
@@ -415,13 +510,20 @@
             <span class="text-[10px] uppercase tracking-[.25em]">Personal travel record</span>
           </div>
           <h3 class="mt-6 text-3xl">Stamp your passport</h3>
-          <p class="mt-2 text-sm text-ink/65 dark:text-slate-400">Add a country you've visited to your personal collection.</p>
+          <p class="mt-2 text-sm text-ink/65 dark:text-slate-400">Add a country you've visited to your personal
+            collection.</p>
           <form id="passportForm" class="mt-6 space-y-4">
-            <label for="visitedCountry" class="block text-xs font-semibold uppercase tracking-wider">Country name</label>
-            <input id="visitedCountry" type="text" placeholder="e.g. India, Japan, Italy" required class="w-full rounded-sm border border-forest/20 bg-paper px-4 py-3 text-sm outline-none focus:border-terracotta dark:border-slate-600 dark:bg-slate-950">
-            <label for="visitedDate" class="block text-xs font-semibold uppercase tracking-wider">When did you visit?</label>
-            <input id="visitedDate" type="date" class="w-full rounded-sm border border-forest/20 bg-paper px-4 py-3 text-sm outline-none focus:border-terracotta dark:border-slate-600 dark:bg-slate-950">
-            <button type="submit" class="w-full rounded-full bg-forest px-5 py-3.5 text-sm font-semibold text-paper hover:bg-terracotta">Add Passport Stamp <i class="fa-solid fa-stamp ml-2"></i></button>
+            <label for="visitedCountry" class="block text-xs font-semibold uppercase tracking-wider">Country
+              name</label>
+            <input id="visitedCountry" type="text" placeholder="e.g. India, Japan, Italy" required
+              class="w-full rounded-sm border border-forest/20 bg-paper px-4 py-3 text-sm outline-none focus:border-terracotta dark:border-slate-600 dark:bg-slate-950">
+            <label for="visitedDate" class="block text-xs font-semibold uppercase tracking-wider">When did you
+              visit?</label>
+            <input id="visitedDate" type="date"
+              class="w-full rounded-sm border border-forest/20 bg-paper px-4 py-3 text-sm outline-none focus:border-terracotta dark:border-slate-600 dark:bg-slate-950">
+            <button type="submit"
+              class="w-full rounded-full bg-forest px-5 py-3.5 text-sm font-semibold text-paper hover:bg-terracotta">Add
+              Passport Stamp <i class="fa-solid fa-stamp ml-2"></i></button>
           </form>
           <div id="passportMessage" class="mt-3 text-sm" aria-live="polite"></div>
           <div id="visitedCountriesList" class="mt-5 flex flex-wrap gap-2"></div>
@@ -435,37 +537,45 @@
         <div class="flex flex-wrap items-end justify-between gap-5">
           <div>
             <p class="text-[10px] uppercase tracking-[.3em] text-[#D99A72]">For the curious traveller</p>
-            <h2 class="mt-4 text-5xl leading-none sm:text-6xl lg:text-7xl">The Hidden <span class="italic text-[#D99A72]">Gems.</span></h2>
+            <h2 class="mt-4 text-5xl leading-none sm:text-6xl lg:text-7xl">The Hidden <span
+                class="italic text-[#D99A72]">Gems.</span></h2>
           </div>
-          <p class="max-w-sm text-sm leading-7 text-paper/70">The quieter corners. The unexpected turns. The places that stay with you long after you've left.</p>
+          <p class="max-w-sm text-sm leading-7 text-paper/70">The quieter corners. The unexpected turns. The places that
+            stay with you long after you've left.</p>
         </div>
 
         <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           <article class="group">
             <div class="overflow-hidden">
-              <img src="./images/alpine-lake.jpg" alt="Quiet alpine lake surrounded by mountains" loading="lazy" class="h-64 w-full object-cover transition duration-500 group-hover:scale-105">
+              <img src="./images/alpine-lake.jpg" alt="Quiet alpine lake surrounded by mountains" loading="lazy"
+                class="h-64 w-full object-cover transition duration-500 group-hover:scale-105">
             </div>
             <p class="mt-5 text-[10px] uppercase tracking-[.25em] text-[#D99A72]">Switzerland · Nature</p>
             <h3 class="mt-2 text-3xl">Beyond the Postcards</h3>
-            <p class="mt-2 text-sm leading-6 text-paper/70">Find peaceful lakeside paths and small mountain villages away from busy city streets.</p>
+            <p class="mt-2 text-sm leading-6 text-paper/70">Find peaceful lakeside paths and small mountain villages
+              away from busy city streets.</p>
           </article>
 
           <article class="group">
             <div class="overflow-hidden">
-              <img src="./images/tropical-island.jpg" alt="Tropical island and turquoise ocean" loading="lazy" class="h-64 w-full object-cover transition duration-500 group-hover:scale-105">
+              <img src="./images/tropical-island.jpg" alt="Tropical island and turquoise ocean" loading="lazy"
+                class="h-64 w-full object-cover transition duration-500 group-hover:scale-105">
             </div>
             <p class="mt-5 text-[10px] uppercase tracking-[.25em] text-[#D99A72]">Indonesia · Island life</p>
             <h3 class="mt-2 text-3xl">The Slower Side</h3>
-            <p class="mt-2 text-sm leading-6 text-paper/70">Look for little coastal communities, local markets and peaceful ocean views.</p>
+            <p class="mt-2 text-sm leading-6 text-paper/70">Look for little coastal communities, local markets and
+              peaceful ocean views.</p>
           </article>
 
           <article class="group">
             <div class="overflow-hidden">
-              <img src="./images/european-streets.jpg" alt="Historic European streets and architecture" loading="lazy" class="h-64 w-full object-cover transition duration-500 group-hover:scale-105">
+              <img src="./images/european-streets.jpg" alt="Historic European streets and architecture" loading="lazy"
+                class="h-64 w-full object-cover transition duration-500 group-hover:scale-105">
             </div>
             <p class="mt-5 text-[10px] uppercase tracking-[.25em] text-[#D99A72]">Europe · Heritage</p>
             <h3 class="mt-2 text-3xl">Little Streets, Big Stories</h3>
-            <p class="mt-2 text-sm leading-6 text-paper/70">Wander through historic neighbourhoods and discover independent shops and cafés.</p>
+            <p class="mt-2 text-sm leading-6 text-paper/70">Wander through historic neighbourhoods and discover
+              independent shops and cafés.</p>
           </article>
         </div>
       </div>
@@ -476,16 +586,16 @@
         <div class="grid gap-8 md:grid-cols-2 md:items-end">
           <div>
             <p class="text-[10px] font-semibold uppercase tracking-[.3em] text-terracotta">A world without borders</p>
-            <h2 class="mt-3 text-5xl leading-none sm:text-6xl">Look at the <span class="italic text-terracotta">big picture.</span></h2>
+            <h2 class="mt-3 text-5xl leading-none sm:text-6xl">Look at the <span class="italic text-terracotta">big
+                picture.</span></h2>
           </div>
-          <p class="text-sm leading-7 text-ink/70 dark:text-slate-300">Explore the world map and start imagining where your next story could take you. Use the map controls to zoom and move around.</p>
+          <p class="text-sm leading-7 text-ink/70 dark:text-slate-300">Explore the world map and start imagining where
+            your next story could take you. Use the map controls to zoom and move around.</p>
         </div>
         <div class="mt-8 overflow-hidden border border-forest/20 bg-paper dark:border-slate-700">
-          <iframe
-            title="Interactive world map"
+          <iframe title="Interactive world map"
             src="https://www.openstreetmap.org/export/embed.html?bbox=-180%2C-60%2C180%2C80&layer=mapnik"
-            class="h-[350px] w-full sm:h-[480px] lg:h-[560px]"
-            loading="lazy"
+            class="h-[350px] w-full sm:h-[480px] lg:h-[560px]" loading="lazy"
             referrerpolicy="no-referrer-when-downgrade">
           </iframe>
         </div>
@@ -497,15 +607,20 @@
     <section id="diary" class="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-12 lg:py-24">
       <div class="grid gap-10 md:grid-cols-2">
         <div>
-          <p class="text-[10px] font-semibold uppercase tracking-[.3em] text-terracotta">Little moments, forever yours</p>
-          <h2 class="mt-4 text-5xl leading-none sm:text-6xl lg:text-7xl">Your Travel <span class="italic text-terracotta">Diary.</span></h2>
+          <p class="text-[10px] font-semibold uppercase tracking-[.3em] text-terracotta">Little moments, forever yours
+          </p>
+          <h2 class="mt-4 text-5xl leading-none sm:text-6xl lg:text-7xl">Your Travel <span
+              class="italic text-terracotta">Diary.</span></h2>
           <p class="mt-5 max-w-lg text-sm leading-7 text-ink/70 dark:text-slate-300">
-            Save the stories behind your photographs. Write about a sunset, a new friend, a favourite meal or a moment you never want to forget.
+            Save the stories behind your photographs. Write about a sunset, a new friend, a favourite meal or a moment
+            you never want to forget.
           </p>
           <div class="mt-8 overflow-hidden">
-            <img src="./images/mountain-lake.jpg" alt="Peaceful mountain lake reflecting the landscape" loading="lazy" class="h-[280px] w-full object-cover sm:h-[350px]">
+            <img src="./images/mountain-lake.jpg" alt="Peaceful mountain lake reflecting the landscape" loading="lazy"
+              class="h-[280px] w-full object-cover sm:h-[350px]">
           </div>
-          <p class="editorial mt-4 text-2xl italic text-terracotta">“We travel not to escape life, but for life not to escape us.”</p>
+          <p class="editorial mt-4 text-2xl italic text-terracotta">“We travel not to escape life, but for life not to
+            escape us.”</p>
         </div>
 
         <div class="border border-forest/20 p-6 dark:border-slate-700 sm:p-8">
@@ -513,27 +628,38 @@
           <p class="mt-2 text-sm text-ink/60 dark:text-slate-400">Your diary entries are saved in this browser.</p>
           <form id="diaryForm" class="mt-6 space-y-4">
             <div>
-              <label for="diaryTitle" class="mb-2 block text-xs font-semibold uppercase tracking-wider">Memory title</label>
-              <input id="diaryTitle" type="text" required maxlength="100" placeholder="A sunset I'll never forget..." class="w-full rounded-sm border border-forest/20 bg-transparent px-4 py-3 text-sm outline-none focus:border-terracotta dark:border-slate-600">
+              <label for="diaryTitle" class="mb-2 block text-xs font-semibold uppercase tracking-wider">Memory
+                title</label>
+              <input id="diaryTitle" type="text" required maxlength="100" placeholder="A sunset I'll never forget..."
+                class="w-full rounded-sm border border-forest/20 bg-transparent px-4 py-3 text-sm outline-none focus:border-terracotta dark:border-slate-600">
             </div>
             <div>
-              <label for="diaryPlace" class="mb-2 block text-xs font-semibold uppercase tracking-wider">Where was it?</label>
-              <input id="diaryPlace" type="text" required maxlength="100" placeholder="Jaipur, India..." class="w-full rounded-sm border border-forest/20 bg-transparent px-4 py-3 text-sm outline-none focus:border-terracotta dark:border-slate-600">
+              <label for="diaryPlace" class="mb-2 block text-xs font-semibold uppercase tracking-wider">Where was
+                it?</label>
+              <input id="diaryPlace" type="text" required maxlength="100" placeholder="Jaipur, India..."
+                class="w-full rounded-sm border border-forest/20 bg-transparent px-4 py-3 text-sm outline-none focus:border-terracotta dark:border-slate-600">
             </div>
             <div>
               <label for="diaryDate" class="mb-2 block text-xs font-semibold uppercase tracking-wider">Date</label>
-              <input id="diaryDate" type="date" class="w-full rounded-sm border border-forest/20 bg-transparent px-4 py-3 text-sm outline-none focus:border-terracotta dark:border-slate-600">
+              <input id="diaryDate" type="date"
+                class="w-full rounded-sm border border-forest/20 bg-transparent px-4 py-3 text-sm outline-none focus:border-terracotta dark:border-slate-600">
             </div>
             <div>
-              <label for="diaryPhoto" class="mb-2 block text-xs font-semibold uppercase tracking-wider">Add a photo (optional)</label>
-            <input id="diaryPhoto" type="file" accept="image/jpeg,image/png,image/webp" class="w-full text-sm file:mr-4 file:rounded-full file:border-0 file:bg-sand file:px-4 file:py-2 file:text-xs file:font-semibold">
+              <label for="diaryPhoto" class="mb-2 block text-xs font-semibold uppercase tracking-wider">Add a photo
+                (optional)</label>
+              <input id="diaryPhoto" type="file" accept="image/jpeg,image/png,image/webp"
+                class="w-full text-sm file:mr-4 file:rounded-full file:border-0 file:bg-sand file:px-4 file:py-2 file:text-xs file:font-semibold">
               <p class="mt-1 text-xs text-ink/50 dark:text-slate-400">Choose a small image for best results.</p>
             </div>
             <div>
-              <label for="diaryStory" class="mb-2 block text-xs font-semibold uppercase tracking-wider">Your story</label>
-              <textarea id="diaryStory" rows="4" required maxlength="1500" placeholder="Write your memory here..." class="w-full resize-y rounded-sm border border-forest/20 bg-transparent px-4 py-3 text-sm outline-none focus:border-terracotta dark:border-slate-600"></textarea>
+              <label for="diaryStory" class="mb-2 block text-xs font-semibold uppercase tracking-wider">Your
+                story</label>
+              <textarea id="diaryStory" rows="4" required maxlength="1500" placeholder="Write your memory here..."
+                class="w-full resize-y rounded-sm border border-forest/20 bg-transparent px-4 py-3 text-sm outline-none focus:border-terracotta dark:border-slate-600"></textarea>
             </div>
-            <button type="submit" class="w-full rounded-full bg-forest px-5 py-3.5 text-sm font-semibold text-paper hover:bg-terracotta">Save This Memory <i class="fa-solid fa-book-open ml-2"></i></button>
+            <button type="submit"
+              class="w-full rounded-full bg-forest px-5 py-3.5 text-sm font-semibold text-paper hover:bg-terracotta">Save
+              This Memory <i class="fa-solid fa-book-open ml-2"></i></button>
           </form>
           <p id="diaryMessage" class="mt-3 text-sm" aria-live="polite"></p>
         </div>
@@ -555,10 +681,13 @@
       <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
         <div class="grid gap-8 md:grid-cols-2 md:items-end">
           <div>
-            <p class="text-[10px] font-semibold uppercase tracking-[.3em] text-terracotta">Stories from fellow explorers</p>
-            <h2 class="mt-3 text-5xl leading-none sm:text-6xl">The Traveller's <span class="italic text-terracotta">Corner.</span></h2>
+            <p class="text-[10px] font-semibold uppercase tracking-[.3em] text-terracotta">Stories from fellow explorers
+            </p>
+            <h2 class="mt-3 text-5xl leading-none sm:text-6xl">The Traveller's <span
+                class="italic text-terracotta">Corner.</span></h2>
           </div>
-          <p class="max-w-lg text-sm leading-7 text-ink/70 dark:text-slate-300">Share a travel tip, recommend a destination or leave a little inspiration for the next explorer.</p>
+          <p class="max-w-lg text-sm leading-7 text-ink/70 dark:text-slate-300">Share a travel tip, recommend a
+            destination or leave a little inspiration for the next explorer.</p>
         </div>
 
         <div class="mt-10 grid gap-8 md:grid-cols-2">
@@ -566,16 +695,23 @@
             <h3 class="text-3xl">Leave a little wisdom</h3>
             <form id="reviewForm" class="mt-5 space-y-4">
               <div>
-                <label for="reviewName" class="mb-2 block text-xs font-semibold uppercase tracking-wider">Your name</label>
-                <input id="reviewName" type="text" required maxlength="60" placeholder="Explorer name" class="w-full rounded-sm border border-forest/20 bg-paper px-4 py-3 text-sm outline-none focus:border-terracotta dark:border-slate-600 dark:bg-slate-950">
+                <label for="reviewName" class="mb-2 block text-xs font-semibold uppercase tracking-wider">Your
+                  name</label>
+                <input id="reviewName" type="text" required maxlength="60" placeholder="Explorer name"
+                  class="w-full rounded-sm border border-forest/20 bg-paper px-4 py-3 text-sm outline-none focus:border-terracotta dark:border-slate-600 dark:bg-slate-950">
               </div>
               <div>
-                <label for="reviewCountry" class="mb-2 block text-xs font-semibold uppercase tracking-wider">Destination</label>
-                <input id="reviewCountry" type="text" required maxlength="80" placeholder="Which place are you reviewing?" class="w-full rounded-sm border border-forest/20 bg-paper px-4 py-3 text-sm outline-none focus:border-terracotta dark:border-slate-600 dark:bg-slate-950">
+                <label for="reviewCountry"
+                  class="mb-2 block text-xs font-semibold uppercase tracking-wider">Destination</label>
+                <input id="reviewCountry" type="text" required maxlength="80"
+                  placeholder="Which place are you reviewing?"
+                  class="w-full rounded-sm border border-forest/20 bg-paper px-4 py-3 text-sm outline-none focus:border-terracotta dark:border-slate-600 dark:bg-slate-950">
               </div>
               <div>
-                <label for="reviewRating" class="mb-2 block text-xs font-semibold uppercase tracking-wider">Your rating</label>
-                <select id="reviewRating" class="w-full rounded-sm border border-forest/20 bg-paper px-4 py-3 text-sm outline-none focus:border-terracotta dark:border-slate-600 dark:bg-slate-950">
+                <label for="reviewRating" class="mb-2 block text-xs font-semibold uppercase tracking-wider">Your
+                  rating</label>
+                <select id="reviewRating"
+                  class="w-full rounded-sm border border-forest/20 bg-paper px-4 py-3 text-sm outline-none focus:border-terracotta dark:border-slate-600 dark:bg-slate-950">
                   <option value="5">★★★★★ — Loved every moment</option>
                   <option value="4">★★★★☆ — Really wonderful</option>
                   <option value="3">★★★☆☆ — Worth the visit</option>
@@ -584,10 +720,15 @@
                 </select>
               </div>
               <div>
-                <label for="reviewText" class="mb-2 block text-xs font-semibold uppercase tracking-wider">Your review</label>
-                <textarea id="reviewText" rows="4" required maxlength="1000" placeholder="What should other travellers know?" class="w-full rounded-sm border border-forest/20 bg-paper px-4 py-3 text-sm outline-none focus:border-terracotta dark:border-slate-600 dark:bg-slate-950"></textarea>
+                <label for="reviewText" class="mb-2 block text-xs font-semibold uppercase tracking-wider">Your
+                  review</label>
+                <textarea id="reviewText" rows="4" required maxlength="1000"
+                  placeholder="What should other travellers know?"
+                  class="w-full rounded-sm border border-forest/20 bg-paper px-4 py-3 text-sm outline-none focus:border-terracotta dark:border-slate-600 dark:bg-slate-950"></textarea>
               </div>
-              <button type="submit" class="rounded-full bg-forest px-6 py-3.5 text-sm font-semibold text-paper hover:bg-terracotta">Share Your Review <i class="fa-solid fa-paper-plane ml-2"></i></button>
+              <button type="submit"
+                class="rounded-full bg-forest px-6 py-3.5 text-sm font-semibold text-paper hover:bg-terracotta">Share
+                Your Review <i class="fa-solid fa-paper-plane ml-2"></i></button>
             </form>
             <p id="reviewMessage" class="mt-3 text-sm" aria-live="polite"></p>
           </div>
@@ -597,7 +738,8 @@
             <p class="mt-2 text-sm text-ink/60 dark:text-slate-400">Community notes saved in this browser.</p>
             <div id="reviewsList" class="mt-5 space-y-4">
               <div class="border-t border-forest/20 py-5 dark:border-slate-700">
-                <p class="text-sm text-ink/60 dark:text-slate-400">Your community reviews will appear here once you add one.</p>
+                <p class="text-sm text-ink/60 dark:text-slate-400">Your community reviews will appear here once you add
+                  one.</p>
               </div>
             </div>
           </div>
@@ -609,12 +751,16 @@
     <section id="plan" class="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-12 lg:py-24">
       <div class="grid gap-10 md:grid-cols-2 md:items-start">
         <div>
-          <p class="text-[10px] font-semibold uppercase tracking-[.3em] text-terracotta">Your next chapter begins here</p>
-          <h2 class="mt-4 text-5xl leading-[.95] sm:text-6xl lg:text-7xl">Let's plan your <span class="italic text-terracotta">escape.</span></h2>
-          <p class="mt-5 max-w-lg text-sm leading-7 text-ink/70 dark:text-slate-300">
-            Tell us what kind of traveller you are and what you feel like exploring. We'll suggest destinations to get your imagination going.
+          <p class="text-[10px] font-semibold uppercase tracking-[.3em] text-terracotta">Your next chapter begins here
           </p>
-          <img src="./images/travel-journal.jpg" alt="Travel journal, map and travel essentials" loading="lazy" class="mt-8 h-64 w-full object-cover sm:h-80">
+          <h2 class="mt-4 text-5xl leading-[.95] sm:text-6xl lg:text-7xl">Let's plan your <span
+              class="italic text-terracotta">escape.</span></h2>
+          <p class="mt-5 max-w-lg text-sm leading-7 text-ink/70 dark:text-slate-300">
+            Tell us what kind of traveller you are and what you feel like exploring. We'll suggest destinations to get
+            your imagination going.
+          </p>
+          <img src="./images/travel-journal.jpg" alt="Travel journal, map and travel essentials" loading="lazy"
+            class="mt-8 h-64 w-full object-cover sm:h-80">
         </div>
 
         <div class="border border-forest/20 bg-[#E9DECC] p-6 dark:border-slate-700 dark:bg-slate-900 sm:p-8">
@@ -623,8 +769,10 @@
 
           <form id="tripForm" class="mt-6 space-y-5">
             <div>
-              <label for="tripStyle" class="mb-2 block text-xs font-semibold uppercase tracking-wider">What's your travel mood?</label>
-              <select id="tripStyle" required class="w-full rounded-sm border border-forest/20 bg-paper px-4 py-3.5 text-sm outline-none focus:border-terracotta dark:border-slate-600 dark:bg-slate-950">
+              <label for="tripStyle" class="mb-2 block text-xs font-semibold uppercase tracking-wider">What's your
+                travel mood?</label>
+              <select id="tripStyle" required
+                class="w-full rounded-sm border border-forest/20 bg-paper px-4 py-3.5 text-sm outline-none focus:border-terracotta dark:border-slate-600 dark:bg-slate-950">
                 <option value="adventure">Adventure & adrenaline</option>
                 <option value="culture">Culture & history</option>
                 <option value="relax">Slow days & relaxation</option>
@@ -635,8 +783,10 @@
             </div>
 
             <div>
-              <label for="tripRegion" class="mb-2 block text-xs font-semibold uppercase tracking-wider">Where would you like to go?</label>
-              <select id="tripRegion" required class="w-full rounded-sm border border-forest/20 bg-paper px-4 py-3.5 text-sm outline-none focus:border-terracotta dark:border-slate-600 dark:bg-slate-950">
+              <label for="tripRegion" class="mb-2 block text-xs font-semibold uppercase tracking-wider">Where would you
+                like to go?</label>
+              <select id="tripRegion" required
+                class="w-full rounded-sm border border-forest/20 bg-paper px-4 py-3.5 text-sm outline-none focus:border-terracotta dark:border-slate-600 dark:bg-slate-950">
                 <option value="any">Surprise me — anywhere</option>
                 <option value="Asia">Asia</option>
                 <option value="Europe">Europe</option>
@@ -647,11 +797,14 @@
             </div>
 
             <div>
-              <label for="tripNotes" class="mb-2 block text-xs font-semibold uppercase tracking-wider">Anything else? (optional)</label>
-              <textarea id="tripNotes" rows="3" placeholder="Budget, travel dates, who is coming along..." class="w-full resize-y rounded-sm border border-forest/20 bg-paper px-4 py-3 text-sm outline-none focus:border-terracotta dark:border-slate-600 dark:bg-slate-950"></textarea>
+              <label for="tripNotes" class="mb-2 block text-xs font-semibold uppercase tracking-wider">Anything else?
+                (optional)</label>
+              <textarea id="tripNotes" rows="3" placeholder="Budget, travel dates, who is coming along..."
+                class="w-full resize-y rounded-sm border border-forest/20 bg-paper px-4 py-3 text-sm outline-none focus:border-terracotta dark:border-slate-600 dark:bg-slate-950"></textarea>
             </div>
 
-            <button type="submit" class="w-full rounded-full bg-forest px-6 py-4 text-sm font-semibold text-paper transition hover:bg-terracotta">
+            <button type="submit"
+              class="w-full rounded-full bg-forest px-6 py-4 text-sm font-semibold text-paper transition hover:bg-terracotta">
               Find My Adventure <i class="fa-solid fa-compass ml-2"></i>
             </button>
           </form>
@@ -665,8 +818,10 @@
     <section id="tools" class="bg-forest py-16 text-paper lg:py-24">
       <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
         <p class="text-[10px] uppercase tracking-[.3em] text-[#D99A72]">Travel smarter, wander further</p>
-        <h2 class="mt-3 text-5xl leading-none sm:text-6xl lg:text-7xl">An Explorer's <span class="italic text-[#D99A72]">Toolkit.</span></h2>
-        <p class="mt-4 max-w-xl text-sm leading-7 text-paper/70">A few useful little helpers to make your next adventure easier to plan.</p>
+        <h2 class="mt-3 text-5xl leading-none sm:text-6xl lg:text-7xl">An Explorer's <span
+            class="italic text-[#D99A72]">Toolkit.</span></h2>
+        <p class="mt-4 max-w-xl text-sm leading-7 text-paper/70">A few useful little helpers to make your next adventure
+          easier to plan.</p>
 
         <div class="mt-10 grid gap-6 md:grid-cols-3">
 
@@ -676,15 +831,20 @@
             <p class="mt-2 text-sm leading-6 text-paper/70">Estimate your total trip budget.</p>
 
             <label for="budgetDays" class="mt-5 block text-xs uppercase tracking-wider">Number of days</label>
-            <input id="budgetDays" type="number" min="1" max="365" value="5" class="mt-2 w-full rounded-sm bg-paper px-4 py-3 text-sm text-ink outline-none">
+            <input id="budgetDays" type="number" min="1" max="365" value="5"
+              class="mt-2 w-full rounded-sm bg-paper px-4 py-3 text-sm text-ink outline-none">
 
             <label for="budgetDaily" class="mt-4 block text-xs uppercase tracking-wider">Daily budget (₹)</label>
-            <input id="budgetDaily" type="number" min="0" value="2500" class="mt-2 w-full rounded-sm bg-paper px-4 py-3 text-sm text-ink outline-none">
+            <input id="budgetDaily" type="number" min="0" value="2500"
+              class="mt-2 w-full rounded-sm bg-paper px-4 py-3 text-sm text-ink outline-none">
 
             <label for="budgetTravel" class="mt-4 block text-xs uppercase tracking-wider">Travel costs (₹)</label>
-            <input id="budgetTravel" type="number" min="0" value="5000" class="mt-2 w-full rounded-sm bg-paper px-4 py-3 text-sm text-ink outline-none">
+            <input id="budgetTravel" type="number" min="0" value="5000"
+              class="mt-2 w-full rounded-sm bg-paper px-4 py-3 text-sm text-ink outline-none">
 
-            <button id="calculateBudgetBtn" type="button" class="mt-5 w-full rounded-full bg-paper px-4 py-3 text-sm font-semibold text-forest hover:bg-[#D99A72]">Calculate Budget</button>
+            <button id="calculateBudgetBtn" type="button"
+              class="mt-5 w-full rounded-full bg-paper px-4 py-3 text-sm font-semibold text-forest hover:bg-[#D99A72]">Calculate
+              Budget</button>
             <p id="budgetResult" class="mt-4 text-sm text-[#D99A72]" aria-live="polite">Estimated total: ₹17,500</p>
           </div>
 
@@ -695,21 +855,30 @@
             <p class="mt-2 text-sm leading-6 text-paper/70">Tick off essentials as you pack.</p>
 
             <div id="packingList" class="mt-5 space-y-3 text-sm">
-              <label class="flex items-center gap-3"><input type="checkbox" class="packing-item accent-[#D99A72]"> Passport / ID</label>
-              <label class="flex items-center gap-3"><input type="checkbox" class="packing-item accent-[#D99A72]"> Tickets & bookings</label>
-              <label class="flex items-center gap-3"><input type="checkbox" class="packing-item accent-[#D99A72]"> Phone & charger</label>
-              <label class="flex items-center gap-3"><input type="checkbox" class="packing-item accent-[#D99A72]"> Clothes & footwear</label>
-              <label class="flex items-center gap-3"><input type="checkbox" class="packing-item accent-[#D99A72]"> Toiletries & medicines</label>
-              <label class="flex items-center gap-3"><input type="checkbox" class="packing-item accent-[#D99A72]"> Water bottle</label>
-              <label class="flex items-center gap-3"><input type="checkbox" class="packing-item accent-[#D99A72]"> Camera & power bank</label>
-              <label class="flex items-center gap-3"><input type="checkbox" class="packing-item accent-[#D99A72]"> Travel insurance</label>
+              <label class="flex items-center gap-3"><input type="checkbox" class="packing-item accent-[#D99A72]">
+                Passport / ID</label>
+              <label class="flex items-center gap-3"><input type="checkbox" class="packing-item accent-[#D99A72]">
+                Tickets & bookings</label>
+              <label class="flex items-center gap-3"><input type="checkbox" class="packing-item accent-[#D99A72]"> Phone
+                & charger</label>
+              <label class="flex items-center gap-3"><input type="checkbox" class="packing-item accent-[#D99A72]">
+                Clothes & footwear</label>
+              <label class="flex items-center gap-3"><input type="checkbox" class="packing-item accent-[#D99A72]">
+                Toiletries & medicines</label>
+              <label class="flex items-center gap-3"><input type="checkbox" class="packing-item accent-[#D99A72]"> Water
+                bottle</label>
+              <label class="flex items-center gap-3"><input type="checkbox" class="packing-item accent-[#D99A72]">
+                Camera & power bank</label>
+              <label class="flex items-center gap-3"><input type="checkbox" class="packing-item accent-[#D99A72]">
+                Travel insurance</label>
             </div>
 
             <div class="mt-5 h-1.5 overflow-hidden rounded-full bg-paper/20">
               <div id="packingProgress" class="h-full w-0 bg-[#D99A72] transition-all"></div>
             </div>
             <p id="packingProgressText" class="mt-2 text-xs text-paper/60">0 of 8 packed</p>
-            <button id="resetPackingBtn" type="button" class="mt-4 text-xs text-[#D99A72] underline">Reset checklist</button>
+            <button id="resetPackingBtn" type="button" class="mt-4 text-xs text-[#D99A72] underline">Reset
+              checklist</button>
           </div>
 
 
@@ -733,7 +902,8 @@
 
             <p id="worldClockTime" class="mt-7 text-4xl text-[#D99A72]">--:--:--</p>
             <p id="worldClockDate" class="mt-2 text-sm text-paper/70">Loading local time...</p>
-            <p class="mt-5 border-t border-paper/20 pt-4 text-xs leading-5 text-paper/60">Times update automatically using the selected city's time zone.</p>
+            <p class="mt-5 border-t border-paper/20 pt-4 text-xs leading-5 text-paper/60">Times update automatically
+              using the selected city's time zone.</p>
           </div>
         </div>
       </div>
@@ -742,17 +912,24 @@
 
     <section id="newsletter" class="mx-auto max-w-5xl px-5 py-16 text-center sm:px-8 lg:py-24">
       <i class="fa-regular fa-envelope text-3xl text-terracotta"></i>
-      <p class="mt-5 text-[10px] font-semibold uppercase tracking-[.3em] text-terracotta">A little wanderlust in your inbox</p>
-      <h2 class="mt-3 text-5xl leading-none sm:text-6xl lg:text-7xl">Letters from <span class="italic text-terracotta">elsewhere.</span></h2>
-      <p class="mx-auto mt-5 max-w-xl text-sm leading-7 text-ink/70 dark:text-slate-300">Get destination inspiration, travel ideas and little reminders that the world is waiting for you.</p>
+      <p class="mt-5 text-[10px] font-semibold uppercase tracking-[.3em] text-terracotta">A little wanderlust in your
+        inbox</p>
+      <h2 class="mt-3 text-5xl leading-none sm:text-6xl lg:text-7xl">Letters from <span
+          class="italic text-terracotta">elsewhere.</span></h2>
+      <p class="mx-auto mt-5 max-w-xl text-sm leading-7 text-ink/70 dark:text-slate-300">Get destination inspiration,
+        travel ideas and little reminders that the world is waiting for you.</p>
 
       <form id="newsletterForm" class="mx-auto mt-8 flex max-w-xl flex-col gap-3 sm:flex-row">
         <label for="newsletterEmail" class="sr-only">Your email address</label>
-        <input id="newsletterEmail" type="email" required placeholder="Your email address" class="min-w-0 flex-1 rounded-full border border-forest/25 bg-transparent px-5 py-4 text-sm outline-none focus:border-terracotta dark:border-slate-600">
-        <button type="submit" class="rounded-full bg-forest px-7 py-4 text-sm font-semibold text-paper transition hover:bg-terracotta">Count Me In <i class="fa-solid fa-arrow-right ml-2"></i></button>
+        <input id="newsletterEmail" type="email" required placeholder="Your email address"
+          class="min-w-0 flex-1 rounded-full border border-forest/25 bg-transparent px-5 py-4 text-sm outline-none focus:border-terracotta dark:border-slate-600">
+        <button type="submit"
+          class="rounded-full bg-forest px-7 py-4 text-sm font-semibold text-paper transition hover:bg-terracotta">Count
+          Me In <i class="fa-solid fa-arrow-right ml-2"></i></button>
       </form>
       <p id="newsletterMessage" class="mt-4 text-sm" aria-live="polite"></p>
-      <p class="mt-3 text-xs text-ink/50 dark:text-slate-500">No spam. Just stories, inspiration and a little wanderlust.</p>
+      <p class="mt-3 text-xs text-ink/50 dark:text-slate-500">No spam. Just stories, inspiration and a little
+        wanderlust.</p>
     </section>
 
     <footer class="bg-forest py-12 text-paper">
@@ -762,17 +939,20 @@
             <a href="#home" class="inline-flex items-center gap-3" aria-label="HeyRomies home">
               <span class="flex h-12 w-12 items-center justify-center rounded-full bg-[#D99A72] text-forest">
                 <svg viewBox="0 0 100 100" class="h-9 w-9" fill="currentColor" aria-hidden="true">
-                  <path d="M50 5 59 34 86 19 68 44 96 52 68 60 79 91 50 70 21 91 32 60 4 52 32 44 14 19 41 34Z"/>
-                  <circle cx="50" cy="52" r="10" fill="#F4EBDD"/>
-                  <path d="M50 28v12M50 64v12M27 52h12M61 52h12" stroke="#193A2E" stroke-width="3" stroke-linecap="round"/>
+                  <path d="M50 5 59 34 86 19 68 44 96 52 68 60 79 91 50 70 21 91 32 60 4 52 32 44 14 19 41 34Z" />
+                  <circle cx="50" cy="52" r="10" fill="#F4EBDD" />
+                  <path d="M50 28v12M50 64v12M27 52h12M61 52h12" stroke="#193A2E" stroke-width="3"
+                    stroke-linecap="round" />
                 </svg>
               </span>
               <span>
                 <span class="block text-3xl tracking-[.08em]">HeyRomies</span>
-                <span class="mt-1 block text-[9px] uppercase tracking-[.25em] text-paper/60">Collect moments, not just miles</span>
+                <span class="mt-1 block text-[9px] uppercase tracking-[.25em] text-paper/60">Collect moments, not just
+                  miles</span>
               </span>
             </a>
-            <p class="mt-5 max-w-sm text-sm leading-6 text-paper/65">For the curious, the adventurous and the ones who always take the scenic route.</p>
+            <p class="mt-5 max-w-sm text-sm leading-6 text-paper/65">For the curious, the adventurous and the ones who
+              always take the scenic route.</p>
           </div>
 
           <div>
@@ -799,7 +979,8 @@
           </div>
         </div>
 
-        <div class="mt-10 flex flex-col justify-between gap-4 border-t border-paper/20 pt-6 text-xs text-paper/55 sm:flex-row sm:items-center">
+        <div
+          class="mt-10 flex flex-col justify-between gap-4 border-t border-paper/20 pt-6 text-xs text-paper/55 sm:flex-row sm:items-center">
           <p>© <span id="copyrightYear">2026</span> HeyRomies. Made for the love of exploring.</p>
           <a href="#home" class="hover:text-[#D99A72]">Back to top ↑</a>
         </div>
@@ -818,29 +999,29 @@
       const $ = (id) => document.getElementById(id);
 
       function readStore(key, fallback = []) {
-  try {
-    const savedData = localStorage.getItem(key);
+        try {
+          const savedData = localStorage.getItem(key);
 
-    if (!savedData) return fallback;
+          if (!savedData) return fallback;
 
-    const value = JSON.parse(savedData);
+          const value = JSON.parse(savedData);
 
-    return Array.isArray(value) ? value : fallback;
-  } catch (error) {
-    console.error("Storage read error:", error);
-    return fallback;
-  }
-}
+          return Array.isArray(value) ? value : fallback;
+        } catch (error) {
+          console.error("Storage read error:", error);
+          return fallback;
+        }
+      }
 
-     function writeStore(key, value) {
-  try {
-    localStorage.setItem(key, JSON.stringify(value));
-    return true;
-  } catch (error) {
-    console.error("Storage save error:", error);
-    return false;
-  }
-}
+      function writeStore(key, value) {
+        try {
+          localStorage.setItem(key, JSON.stringify(value));
+          return true;
+        } catch (error) {
+          console.error("Storage save error:", error);
+          return false;
+        }
+      }
       function escapeHTML(value) {
         return String(value ?? "").replace(/[&<>"']/g, (char) => ({
           "&": "&amp;",
@@ -853,27 +1034,46 @@
 
       const mobileMenuBtn = $("mobileMenuBtn");
       const mobileMenu = $("mobileMenu");
-
       mobileMenuBtn?.addEventListener("click", () => {
         const isHidden = mobileMenu.classList.toggle("hidden");
+
         mobileMenuBtn.setAttribute("aria-expanded", String(!isHidden));
+
+        mobileMenuBtn.setAttribute(
+          "aria-label",
+          isHidden ? "Open navigation menu" : "Close navigation menu"
+        );
+
         mobileMenuBtn.innerHTML = isHidden
           ? '<i class="fa-solid fa-bars"></i>'
           : '<i class="fa-solid fa-xmark"></i>';
       });
 
-      document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && mobileMenu && !mobileMenu.classList.contains("hidden")) {
-    mobileMenu.classList.add("hidden");
-    mobileMenuBtn?.setAttribute("aria-expanded", "false");
+      mobileMenu?.addEventListener("click", (event) => {
+  const link = event.target.closest("a");
 
-    if (mobileMenuBtn) {
-      mobileMenuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
-      mobileMenuBtn.focus();
-    }
-  }
+  if (!link) return;
+
+  mobileMenu.classList.add("hidden");
+
+  mobileMenuBtn?.setAttribute("aria-expanded", "false");
+  mobileMenuBtn?.setAttribute("aria-label", "Open navigation menu");
+
+  mobileMenuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
 });
 
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && mobileMenu && !mobileMenu.classList.contains("hidden")) {
+          mobileMenu.classList.add("hidden");
+          mobileMenuBtn?.setAttribute("aria-expanded", "false");
+          mobileMenuBtn?.setAttribute("aria-label", "Open navigation menu");
+
+          if (mobileMenuBtn) {
+            mobileMenuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+            mobileMenuBtn.focus();
+          }
+        }
+      });
 
       $("searchFocusBtn")?.addEventListener("click", () => {
         document.getElementById("explorer")?.scrollIntoView({ behavior: "smooth" });
@@ -1047,14 +1247,14 @@
           });
 
           if (file && !["image/jpeg", "image/png", "image/webp"].includes(file.type)) {
-  $("diaryMessage").textContent = "Please choose a JPG, PNG or WebP image.";
-  return;
-}
+            $("diaryMessage").textContent = "Please choose a JPG, PNG or WebP image.";
+            return;
+          }
 
-if (file && file.size > 700 * 1024) {
-  $("diaryMessage").textContent = "Please choose a photo smaller than 700 KB.";
-  return;
-}
+          if (file && file.size > 700 * 1024) {
+            $("diaryMessage").textContent = "Please choose a photo smaller than 700 KB.";
+            return;
+          }
 
           if (!writeStore(DIARY_KEY, entries)) {
             $("diaryMessage").textContent = "Storage is full. Try a smaller photo or remove older memories.";
@@ -1369,4 +1569,5 @@ if (file && file.size > 700 * 1024) {
     })();
   </script>
 </body>
+
 </html>
