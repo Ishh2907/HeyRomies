@@ -1,0 +1,1352 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="HeyRomies — Collect moments, not just miles. Discover extraordinary destinations, cultures and adventures around the world.">
+  <title>HeyRomies — Collect Moments, Not Just Miles</title>
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23193A2E'/%3E%3Cpath d='M50 12 L57 38 L83 25 L65 47 L91 55 L63 61 L73 88 L50 69 L27 88 L37 61 L9 55 L35 47 L17 25 L43 38 Z' fill='%23D99A72'/%3E%3Ccircle cx='50' cy='52' r='10' fill='%23F4EBDD'/%3E%3C/svg%3E">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ["Cormorant Garamond", "serif"],
+            sans: ["DM Sans", "sans-serif"]
+          },
+          colors: {
+            paper: "#F4EBDD",
+            forest: "#193A2E",
+            terracotta: "#B85F3E",
+            sand: "#DED0B9",
+            ink: "#282C25"
+          }
+        }
+      }
+    };
+
+    try {
+      if (localStorage.getItem("heyromies_theme") === "dark") {
+        document.documentElement.classList.add("dark");
+      }
+    } catch (error) {}
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: "DM Sans", sans-serif; }
+    h1, h2, h3, .editorial { font-family: "Cormorant Garamond", serif; }
+    .paper-texture {
+      background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+    }
+    .hero-image {
+      background-image:
+        linear-gradient(90deg, rgba(20,43,33,.78), rgba(20,43,33,.05)),
+        url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=2000&q=85");
+      background-position: center;
+      background-size: cover;
+    }
+    .destination-image { transition: transform .6s ease; }
+    .destination-card:hover .destination-image { transform: scale(1.05); }
+    .text-balance { text-wrap: balance; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+  </style>
+</head>
+
+<body class="paper-texture bg-paper text-ink transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100">
+
+  
+<header class="sticky top-0 z-40 border-b border-forest/15 bg-paper/95 backdrop-blur-lg dark:border-slate-700 dark:bg-slate-950/95">
+
+  <nav class="mx-auto flex max-w-7xl items-center justify-between gap-2 px-3 py-3 sm:gap-4 sm:px-5 sm:py-4 lg:px-8">
+
+    <a href="#home" class="flex min-w-0 shrink items-center gap-2 sm:gap-2.5" aria-label="HeyRomies home">
+
+      <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-forest text-[#D99A72] shadow-sm dark:bg-[#D99A72] dark:text-forest sm:h-11 sm:w-11" aria-hidden="true">
+        <svg viewBox="0 0 100 100" class="h-7 w-7 sm:h-8 sm:w-8" fill="currentColor">
+          <path d="M50 5 59 34 86 19 68 44 96 52 68 60 79 91 50 70 21 91 32 60 4 52 32 44 14 19 41 34Z"/>
+          <circle cx="50" cy="52" r="10" fill="#F4EBDD" class="dark:fill-[#193A2E]"/>
+          <path d="M50 28v12M50 64v12M27 52h12M61 52h12" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      </span>
+
+      <span class="min-w-0">
+        <span class="block whitespace-nowrap text-xl font-semibold leading-none tracking-[.04em] text-forest dark:text-paper sm:text-3xl sm:tracking-[.08em]">HeyRomies</span>
+        <span class="mt-1 hidden whitespace-nowrap text-[9px] uppercase tracking-[.2em] text-forest/70 dark:text-slate-400 sm:block">Collect moments, not just miles</span>
+      </span>
+    </a>
+
+    <div class="hidden items-center gap-6 text-sm md:flex lg:gap-8">
+    
+      <a href="#destinations" class="transition hover:text-terracotta">Destinations</a>
+      <a href="#adventures" class="transition hover:text-terracotta">Adventures</a>
+      <a href="#culture" class="transition hover:text-terracotta">Culture</a>
+      <a href="#about" class="transition hover:text-terracotta">Our Story</a>
+    </div>
+
+    <div class="flex shrink-0 items-center gap-0.5 sm:gap-2">
+
+      <button id="searchFocusBtn" type="button" class="flex h-9 w-9 items-center justify-center rounded-full hover:bg-forest/10 sm:h-10 sm:w-10" aria-label="Focus country search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+
+      <button id="themeToggle" type="button" class="flex h-9 w-9 items-center justify-center rounded-full hover:bg-forest/10 sm:h-10 sm:w-10" aria-label="Toggle dark mode">
+        <i id="themeIcon" class="fa-solid fa-moon"></i>
+      </button>
+
+      <a href="#plan" class="hidden items-center gap-2 rounded-full bg-forest px-3 py-2 text-xs font-semibold text-paper transition hover:bg-terracotta md:inline-flex lg:gap-3 lg:px-5 lg:py-3">
+        <span>Plan Your Trip</span> <i class="fa-solid fa-arrow-right"></i>
+      </a>
+
+      <button id="mobileMenuBtn" type="button" class="flex h-9 w-9 items-center justify-center rounded-full hover:bg-forest/10 md:hidden sm:h-10 sm:w-10" aria-label="Open navigation" aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+    </div>
+  </nav>
+
+  <div id="mobileMenu" class="hidden border-t border-forest/15 px-5 py-4 dark:border-slate-700 md:hidden">
+    <div class="flex flex-col gap-4 text-sm">
+      <a href="#destinations">Destinations</a>
+      <a href="#adventures">Adventures</a>
+      <a href="#culture">Culture</a>
+      <a href="#explorer">Explore Countries</a>
+      <a href="#passport">Travel Passport</a>
+      <a href="#hidden-gems">Hidden Gems</a>
+      <a href="#wishlist">Wishlist</a>
+      <a href="#diary">Travel Diary</a>
+      <a href="#tools">Explorer Tools</a>
+      <a href="#about">Our Story</a>
+      <a href="#plan">Plan Your Trip</a>
+    </div>
+  </div>
+
+</header>
+
+
+  <main id="home">
+
+
+    <section class="relative min-h-[660px] overflow-hidden bg-forest text-paper sm:min-h-[720px]">
+      <div class="hero-image absolute inset-0"></div>
+      <div class="relative mx-auto flex min-h-[660px] max-w-7xl flex-col justify-center px-6 py-20 sm:min-h-[720px] lg:px-12">
+        <p class="mb-6 text-xs font-semibold uppercase tracking-[.3em] text-paper/80">Explore a more meaningful way</p>
+        <h1 class="max-w-3xl text-balance text-6xl font-medium leading-[.88] sm:text-7xl lg:text-8xl xl:text-9xl">
+          A Deeper<br>Way to <span class="italic text-[#D99A72]">Travel.</span>
+        </h1>
+        <p class="mt-7 max-w-md text-sm leading-7 text-paper/85 sm:text-base">
+          Old souls. New adventures. Discover extraordinary places, meet different cultures, and collect stories worth telling.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="#destinations" class="inline-flex items-center gap-4 rounded-full bg-paper px-6 py-3.5 text-sm font-semibold text-forest transition hover:bg-[#D99A72]">
+            Explore the World <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a href="#adventures" class="inline-flex items-center gap-3 rounded-full border border-paper/60 px-6 py-3.5 text-sm text-paper transition hover:bg-paper/10">
+            <i class="fa-solid fa-compass"></i> Find Your Adventure
+          </a>
+        </div>
+        <div class="mt-16 flex items-end justify-between border-t border-paper/30 pt-5">
+          <div>
+            <p class="text-[10px] uppercase tracking-[.25em] text-paper/70">Our philosophy</p>
+            <p class="editorial mt-2 text-2xl italic sm:text-3xl">Collect moments, not just miles.</p>
+          </div>
+          <a href="#destinations" class="hidden text-xs uppercase tracking-[.2em] sm:block">Scroll to explore ↓</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="destinations" class="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-12 lg:py-24">
+      <div class="flex flex-wrap items-end justify-between gap-5">
+        <div>
+          <p class="text-[10px] font-semibold uppercase tracking-[.3em] text-terracotta">Postcards from everywhere</p>
+          <h2 class="mt-3 text-5xl leading-none sm:text-6xl">Somewhere <span class="italic text-terracotta">wonderful.</span></h2>
+        </div>
+        <a href="#explorer" class="text-sm font-semibold text-forest hover:text-terracotta dark:text-paper">
+          All destinations <i class="fa-solid fa-arrow-right ml-2"></i>
+        </a>
+      </div>
+
+      <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <a href="#explorer" class="destination-card group relative h-[390px] overflow-hidden rounded-sm bg-sand">
+          <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=900&q=85" alt="Colourful coastal villages of Italy" class="destination-image absolute inset-0 h-full w-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent"></div>
+          <div class="absolute bottom-0 p-6 text-white">
+            <p class="text-[10px] uppercase tracking-[.25em]">Europe · Coastal escapes</p>
+            <h3 class="mt-2 text-4xl">The Italian Riviera</h3>
+            <p class="mt-2 text-sm text-white/80">Colourful villages, salty air and slow afternoons.</p>
+          </div>
+        </a>
+
+        <a href="#explorer" class="destination-card group relative h-[390px] overflow-hidden rounded-sm bg-sand">
+          <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=900&q=85" alt="Traditional streets of Kyoto, Japan" class="destination-image absolute inset-0 h-full w-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent"></div>
+          <div class="absolute bottom-0 p-6 text-white">
+            <p class="text-[10px] uppercase tracking-[.25em]">Asia · Cultural journeys</p>
+            <h3 class="mt-2 text-4xl">Old Soul Kyoto</h3>
+            <p class="mt-2 text-sm text-white/80">Quiet temples, lantern-lit lanes and ancient traditions.</p>
+          </div>
+        </a>
+
+        <a href="#explorer" class="destination-card group relative h-[390px] overflow-hidden rounded-sm bg-sand sm:col-span-2 lg:col-span-1">
+          <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=85" alt="Majestic mountain range" class="destination-image absolute inset-0 h-full w-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent"></div>
+          <div class="absolute bottom-0 p-6 text-white">
+            <p class="text-[10px] uppercase tracking-[.25em]">The wild · Mountain escapes</p>
+            <h3 class="mt-2 text-4xl">Into the Wild</h3>
+            <p class="mt-2 text-sm text-white/80">Fresh mountain air and trails that lead to wonder.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+
+    <section id="adventures" class="bg-forest py-16 text-paper lg:py-24">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
+        <div class="grid gap-10 md:grid-cols-2 md:items-end">
+          <div>
+            <p class="text-[10px] uppercase tracking-[.3em] text-[#D99A72]">For the wild at heart</p>
+            <h2 class="mt-4 text-5xl leading-[.95] sm:text-6xl lg:text-7xl">Take the <span class="italic text-[#D99A72]">scenic route.</span></h2>
+          </div>
+          <p class="max-w-lg text-sm leading-7 text-paper/75">
+            Sometimes the best memories happen when you leave the familiar behind. Choose a trail, follow the wind and let the unexpected find you.
+          </p>
+        </div>
+
+        <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <article class="border-t border-paper/30 pt-5">
+            <i class="fa-solid fa-mountain-sun text-2xl text-[#D99A72]"></i>
+            <h3 class="mt-5 text-3xl">Mountain Trails</h3>
+            <p class="mt-2 text-sm leading-6 text-paper/70">Find quiet paths, sunrise summits and views worth the climb.</p>
+          </article>
+          <article class="border-t border-paper/30 pt-5">
+            <i class="fa-solid fa-water text-2xl text-[#D99A72]"></i>
+            <h3 class="mt-5 text-3xl">Ocean Days</h3>
+            <p class="mt-2 text-sm leading-6 text-paper/70">Swim in clear waters, wander coastlines and chase sunsets.</p>
+          </article>
+          <article class="border-t border-paper/30 pt-5">
+            <i class="fa-solid fa-person-hiking text-2xl text-[#D99A72]"></i>
+            <h3 class="mt-5 text-3xl">Wild Escapes</h3>
+            <p class="mt-2 text-sm leading-6 text-paper/70">Explore forests, national parks and beautiful open spaces.</p>
+          </article>
+          <article class="border-t border-paper/30 pt-5">
+            <i class="fa-solid fa-compass text-2xl text-[#D99A72]"></i>
+            <h3 class="mt-5 text-3xl">Road Trips</h3>
+            <p class="mt-2 text-sm leading-6 text-paper/70">Take the long way around and stop wherever curiosity leads.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="culture" class="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-12 lg:py-24">
+      <div class="grid gap-10 md:grid-cols-2 md:items-center">
+        <div class="overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=1100&q=85" alt="Historic architecture and cultural heritage in India" class="h-[420px] w-full object-cover sm:h-[520px]">
+        </div>
+        <div class="md:pl-6">
+          <p class="text-[10px] font-semibold uppercase tracking-[.3em] text-terracotta">People, places, traditions</p>
+          <h2 class="mt-4 text-5xl leading-[.95] sm:text-6xl lg:text-7xl">Travel with <span class="italic text-terracotta">curiosity.</span></h2>
+          <p class="mt-6 text-sm leading-7 text-ink/75 dark:text-slate-300 sm:text-base">
+            Every place has a story. Taste the local food, learn the old traditions, listen to the music and take time to understand the people who call it home.
+          </p>
+          <div class="mt-8 space-y-5">
+            <div class="flex gap-4">
+              <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-sand/70 text-forest dark:bg-slate-800 dark:text-paper"><i class="fa-solid fa-utensils"></i></span>
+              <div>
+                <h3 class="text-2xl">Local Flavours</h3>
+                <p class="mt-1 text-sm text-ink/70 dark:text-slate-400">Discover traditional dishes and neighbourhood favourites.</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-sand/70 text-forest dark:bg-slate-800 dark:text-paper"><i class="fa-solid fa-landmark"></i></span>
+              <div>
+                <h3 class="text-2xl">Living History</h3>
+                <p class="mt-1 text-sm text-ink/70 dark:text-slate-400">Explore architecture, heritage sites and stories passed down.</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-sand/70 text-forest dark:bg-slate-800 dark:text-paper"><i class="fa-solid fa-people-group"></i></span>
+              <div>
+                <h3 class="text-2xl">Local Connections</h3>
+                <p class="mt-1 text-sm text-ink/70 dark:text-slate-400">Meet people, respect local customs and travel thoughtfully.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="explorer" class="bg-[#E9DECC] py-16 dark:bg-slate-900 lg:py-24">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
+        <div class="flex flex-wrap items-end justify-between gap-5">
+          <div>
+            <p class="text-[10px] font-semibold uppercase tracking-[.3em] text-terracotta">Your world, at your fingertips</p>
+            <h2 class="mt-3 text-5xl leading-none sm:text-6xl lg:text-7xl">The Country <span class="italic text-terracotta">Explorer.</span></h2>
+            <p class="mt-4 max-w-xl text-sm leading-7 text-ink/70 dark:text-slate-300">
+              Search countries, discover fascinating facts and find your next destination.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <button id="allCountriesBtn" class="rounded-full bg-forest px-5 py-3 text-xs font-semibold text-paper">All Countries</button>
+            <button id="showFavoritesBtn" class="rounded-full border border-forest/30 px-5 py-3 text-xs font-semibold hover:bg-forest/10 dark:border-slate-600"><i class="fa-regular fa-heart mr-2"></i>My Wishlist</button>
+            <button id="refreshBtn" class="flex h-10 w-10 items-center justify-center rounded-full border border-forest/30 hover:bg-forest/10 dark:border-slate-600" aria-label="Refresh countries"><i class="fa-solid fa-rotate"></i></button>
+          </div>
+        </div>
+
+        <div class="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <div class="relative">
+            <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-ink/50"></i>
+            <input id="searchInput" type="search" placeholder="Search a country..." class="w-full rounded-sm border border-forest/20 bg-paper py-3.5 pl-11 pr-4 text-sm outline-none focus:border-terracotta dark:border-slate-600 dark:bg-slate-950" />
+          </div>
+          <select id="regionFilter" class="w-full rounded-sm border border-forest/20 bg-paper px-4 py-3.5 text-sm outline-none focus:border-terracotta dark:border-slate-600 dark:bg-slate-950">
+            <option value="all">All regions</option>
+            <option value="Africa">Africa</option>
+            <option value="Americas">Americas</option>
+            <option value="Asia">Asia</option>
+            <option value="Europe">Europe</option>
+            <option value="Oceania">Oceania</option>
+          </select>
+          <select id="sortSelect" class="w-full rounded-sm border border-forest/20 bg-paper px-4 py-3.5 text-sm outline-none focus:border-terracotta dark:border-slate-600 dark:bg-slate-950">
+            <option value="name">Sort: Name A–Z</option>
+            <option value="population">Sort: Population</option>
+            <option value="area">Sort: Area</option>
+          </select>
+          <button id="clearFiltersBtn" class="rounded-sm border border-forest/25 px-4 py-3.5 text-sm transition hover:bg-forest/10 dark:border-slate-600">
+            <i class="fa-solid fa-filter-circle-xmark mr-2"></i>Clear filters
+          </button>
+        </div>
+
+        <div id="activeFilters" class="mt-4 text-xs text-ink/60 dark:text-slate-400"></div>
+
+        <div id="loadingState" class="py-16 text-center">
+          <i class="fa-solid fa-compass fa-spin text-3xl text-terracotta"></i>
+          <p class="mt-4 text-sm">Discovering the world...</p>
+        </div>
+
+        <div id="errorState" class="hidden rounded-sm border border-red-300 bg-red-50 p-6 text-center text-sm text-red-800">
+          <i class="fa-solid fa-triangle-exclamation mr-2"></i>
+          Countries could not be loaded. Please check your internet connection and try again.
+          <button id="retryCountriesBtn" class="ml-2 font-bold underline">Retry</button>
+        </div>
+
+        <div id="emptyState" class="hidden py-16 text-center">
+          <i class="fa-regular fa-face-frown text-3xl text-terracotta"></i>
+          <p class="mt-3 text-lg">No countries found.</p>
+          <p class="mt-1 text-sm text-ink/60 dark:text-slate-400">Try another search or clear your filters.</p>
+        </div>
+
+        <div id="countryGrid" class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"></div>
+
+        <div class="mt-10 text-center">
+          <button id="exploreMoreBtn" class="rounded-full bg-forest px-7 py-4 text-sm font-semibold text-paper transition hover:bg-terracotta">
+            Explore More Countries <i class="fa-solid fa-arrow-down ml-2"></i>
+          </button>
+        </div>
+
+        <div id="compareBar" class="fixed bottom-4 left-1/2 z-40 hidden w-[calc(100%-2rem)] max-w-3xl -translate-x-1/2 items-center justify-between gap-4 rounded-sm bg-forest p-4 text-paper shadow-2xl">
+          <p id="compareCount" class="text-sm">0 countries selected</p>
+          <div class="flex gap-2">
+            <button id="compareBtn" class="rounded-full bg-paper px-4 py-2 text-xs font-semibold text-forest">Compare</button>
+            <button id="clearCompareBtn" class="rounded-full border border-paper/50 px-4 py-2 text-xs">Clear</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <div id="detailModal" class="fixed inset-0 z-50 hidden items-center justify-center overflow-y-auto bg-black/70 p-4" role="dialog" aria-modal="true" aria-label="Country details">
+      <div class="my-auto max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-sm bg-paper p-6 text-ink shadow-2xl dark:bg-slate-900 dark:text-paper sm:p-8">
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <p class="text-[10px] uppercase tracking-[.25em] text-terracotta">Your field notes</p>
+            <h2 id="detailCountryName" class="mt-2 text-4xl sm:text-5xl">Country details</h2>
+          </div>
+          <button id="closeDetailModal" class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full hover:bg-forest/10" aria-label="Close country details"><i class="fa-solid fa-xmark text-xl"></i></button>
+        </div>
+        <div id="detailContent" class="mt-6"></div>
+      </div>
+    </div>
+
+
+    <div id="compareModal" class="fixed inset-0 z-50 hidden items-center justify-center overflow-y-auto bg-black/70 p-4" role="dialog" aria-modal="true" aria-label="Compare countries">
+      <div class="my-auto max-h-[90vh] w-full max-w-4xl overflow-y-auto rounded-sm bg-paper p-6 text-ink shadow-2xl dark:bg-slate-900 dark:text-paper sm:p-8">
+        <div class="flex items-center justify-between gap-4">
+          <h2 class="text-4xl sm:text-5xl">Side by <span class="italic text-terracotta">side.</span></h2>
+          <button id="closeCompareModal" class="flex h-10 w-10 items-center justify-center rounded-full hover:bg-forest/10" aria-label="Close comparison"><i class="fa-solid fa-xmark text-xl"></i></button>
+        </div>
+        <div id="compareContent" class="mt-6 overflow-x-auto"></div>
+      </div>
+    </div>
+
+
+    <section id="passport" class="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-12 lg:py-24">
+      <div class="grid gap-10 md:grid-cols-2 md:items-center">
+        <div>
+          <p class="text-[10px] font-semibold uppercase tracking-[.3em] text-terracotta">Your journeys, collected</p>
+          <h2 class="mt-4 text-5xl leading-none sm:text-6xl lg:text-7xl">Your Travel <span class="italic text-terracotta">Passport.</span></h2>
+          <p class="mt-5 max-w-lg text-sm leading-7 text-ink/70 dark:text-slate-300">
+            Every country has a story. Keep track of the places you've visited and celebrate every little adventure along the way.
+          </p>
+          <div class="mt-8 grid grid-cols-2 gap-4">
+            <div class="border border-forest/20 p-5 dark:border-slate-700">
+              <p class="text-xs uppercase tracking-wider text-ink/60 dark:text-slate-400">Countries visited</p>
+              <p id="visitedCount" class="mt-2 text-5xl text-forest dark:text-paper">0</p>
+            </div>
+            <div class="border border-forest/20 p-5 dark:border-slate-700">
+              <p class="text-xs uppercase tracking-wider text-ink/60 dark:text-slate-400">Travel memories</p>
+              <p id="passportMemoryCount" class="mt-2 text-5xl text-forest dark:text-paper">0</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="border border-forest/20 bg-[#E9DECC] p-6 dark:border-slate-700 dark:bg-slate-900 sm:p-8">
+          <div class="flex items-center justify-between">
+            <i class="fa-solid fa-passport text-3xl text-terracotta"></i>
+            <span class="text-[10px] uppercase tracking-[.25em]">Personal travel record</span>
+          </div>
+          <h3 class="mt-6 text-3xl">Stamp your passport</h3>
+          <p class="mt-2 text-sm text-ink/65 dark:text-slate-400">Add a country you've visited to your personal collection.</p>
+          <form id="passportForm" class="mt-6 space-y-4">
+            <label for="visitedCountry" class="block text-xs font-semibold uppercase tracking-wider">Country name</label>
+            <input id="visitedCountry" type="text" placeholder="e.g. India, Japan, Italy" required class="w-full rounded-sm border border-forest/20 bg-paper px-4 py-3 text-sm outline-none focus:border-terracotta dark:border-slate-600 dark:bg-slate-950">
+            <label for="visitedDate" class="block text-xs font-semibold uppercase tracking-wider">When did you visit?</label>
+            <input id="visitedDate" type="date" class="w-full rounded-sm border border-forest/20 bg-paper px-4 py-3 text-sm outline-none focus:border-terracotta dark:border-slate-600 dark:bg-slate-950">
+            <button type="submit" class="w-full rounded-full bg-forest px-5 py-3.5 text-sm font-semibold text-paper hover:bg-terracotta">Add Passport Stamp <i class="fa-solid fa-stamp ml-2"></i></button>
+          </form>
+          <div id="passportMessage" class="mt-3 text-sm" aria-live="polite"></div>
+          <div id="visitedCountriesList" class="mt-5 flex flex-wrap gap-2"></div>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="hidden-gems" class="bg-forest py-16 text-paper lg:py-24">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
+        <div class="flex flex-wrap items-end justify-between gap-5">
+          <div>
+            <p class="text-[10px] uppercase tracking-[.3em] text-[#D99A72]">For the curious traveller</p>
+            <h2 class="mt-4 text-5xl leading-none sm:text-6xl lg:text-7xl">The Hidden <span class="italic text-[#D99A72]">Gems.</span></h2>
+          </div>
+          <p class="max-w-sm text-sm leading-7 text-paper/70">The quieter corners. The unexpected turns. The places that stay with you long after you've left.</p>
+        </div>
+
+        <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <article class="group">
+            <div class="overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=850&q=85" alt="Quiet alpine lake surrounded by mountains" loading="lazy" class="h-64 w-full object-cover transition duration-500 group-hover:scale-105">
+            </div>
+            <p class="mt-5 text-[10px] uppercase tracking-[.25em] text-[#D99A72]">Switzerland · Nature</p>
+            <h3 class="mt-2 text-3xl">Beyond the Postcards</h3>
+            <p class="mt-2 text-sm leading-6 text-paper/70">Find peaceful lakeside paths and small mountain villages away from busy city streets.</p>
+          </article>
+
+          <article class="group">
+            <div class="overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=850&q=85" alt="Tropical island and turquoise ocean" loading="lazy" class="h-64 w-full object-cover transition duration-500 group-hover:scale-105">
+            </div>
+            <p class="mt-5 text-[10px] uppercase tracking-[.25em] text-[#D99A72]">Indonesia · Island life</p>
+            <h3 class="mt-2 text-3xl">The Slower Side</h3>
+            <p class="mt-2 text-sm leading-6 text-paper/70">Look for little coastal communities, local markets and peaceful ocean views.</p>
+          </article>
+
+          <article class="group">
+            <div class="overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=850&q=85" alt="Historic European streets and architecture" loading="lazy" class="h-64 w-full object-cover transition duration-500 group-hover:scale-105">
+            </div>
+            <p class="mt-5 text-[10px] uppercase tracking-[.25em] text-[#D99A72]">Europe · Heritage</p>
+            <h3 class="mt-2 text-3xl">Little Streets, Big Stories</h3>
+            <p class="mt-2 text-sm leading-6 text-paper/70">Wander through historic neighbourhoods and discover independent shops and cafés.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="world-map" class="bg-[#E9DECC] py-16 dark:bg-slate-900 lg:py-24">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
+        <div class="grid gap-8 md:grid-cols-2 md:items-end">
+          <div>
+            <p class="text-[10px] font-semibold uppercase tracking-[.3em] text-terracotta">A world without borders</p>
+            <h2 class="mt-3 text-5xl leading-none sm:text-6xl">Look at the <span class="italic text-terracotta">big picture.</span></h2>
+          </div>
+          <p class="text-sm leading-7 text-ink/70 dark:text-slate-300">Explore the world map and start imagining where your next story could take you. Use the map controls to zoom and move around.</p>
+        </div>
+        <div class="mt-8 overflow-hidden border border-forest/20 bg-paper dark:border-slate-700">
+          <iframe
+            title="Interactive world map"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=-180%2C-60%2C180%2C80&layer=mapnik"
+            class="h-[350px] w-full sm:h-[480px] lg:h-[560px]"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+        <p class="mt-3 text-right text-xs text-ink/60 dark:text-slate-400">Map data © OpenStreetMap contributors</p>
+      </div>
+    </section>
+
+
+    <section id="diary" class="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-12 lg:py-24">
+      <div class="grid gap-10 md:grid-cols-2">
+        <div>
+          <p class="text-[10px] font-semibold uppercase tracking-[.3em] text-terracotta">Little moments, forever yours</p>
+          <h2 class="mt-4 text-5xl leading-none sm:text-6xl lg:text-7xl">Your Travel <span class="italic text-terracotta">Diary.</span></h2>
+          <p class="mt-5 max-w-lg text-sm leading-7 text-ink/70 dark:text-slate-300">
+            Save the stories behind your photographs. Write about a sunset, a new friend, a favourite meal or a moment you never want to forget.
+          </p>
+          <div class="mt-8 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1000&q=85" alt="Peaceful mountain lake reflecting the landscape" loading="lazy" class="h-[280px] w-full object-cover sm:h-[350px]">
+          </div>
+          <p class="editorial mt-4 text-2xl italic text-terracotta">“We travel not to escape life, but for life not to escape us.”</p>
+        </div>
+
+        <div class="border border-forest/20 p-6 dark:border-slate-700 sm:p-8">
+          <h3 class="text-3xl">Write a memory</h3>
+          <p class="mt-2 text-sm text-ink/60 dark:text-slate-400">Your diary entries are saved in this browser.</p>
+          <form id="diaryForm" class="mt-6 space-y-4">
+            <div>
+              <label for="diaryTitle" class="mb-2 block text-xs font-semibold uppercase tracking-wider">Memory title</label>
+              <input id="diaryTitle" type="text" required maxlength="100" placeholder="A sunset I'll never forget..." class="w-full rounded-sm border border-forest/20 bg-transparent px-4 py-3 text-sm outline-none focus:border-terracotta dark:border-slate-600">
+            </div>
+            <div>
+              <label for="diaryPlace" class="mb-2 block text-xs font-semibold uppercase tracking-wider">Where was it?</label>
+              <input id="diaryPlace" type="text" required maxlength="100" placeholder="Jaipur, India..." class="w-full rounded-sm border border-forest/20 bg-transparent px-4 py-3 text-sm outline-none focus:border-terracotta dark:border-slate-600">
+            </div>
+            <div>
+              <label for="diaryDate" class="mb-2 block text-xs font-semibold uppercase tracking-wider">Date</label>
+              <input id="diaryDate" type="date" class="w-full rounded-sm border border-forest/20 bg-transparent px-4 py-3 text-sm outline-none focus:border-terracotta dark:border-slate-600">
+            </div>
+            <div>
+              <label for="diaryPhoto" class="mb-2 block text-xs font-semibold uppercase tracking-wider">Add a photo (optional)</label>
+              <input id="diaryPhoto" type="file" accept="image/*" class="w-full text-sm file:mr-4 file:rounded-full file:border-0 file:bg-sand file:px-4 file:py-2 file:text-xs file:font-semibold">
+              <p class="mt-1 text-xs text-ink/50 dark:text-slate-400">Choose a small image for best results.</p>
+            </div>
+            <div>
+              <label for="diaryStory" class="mb-2 block text-xs font-semibold uppercase tracking-wider">Your story</label>
+              <textarea id="diaryStory" rows="4" required maxlength="1500" placeholder="Write your memory here..." class="w-full resize-y rounded-sm border border-forest/20 bg-transparent px-4 py-3 text-sm outline-none focus:border-terracotta dark:border-slate-600"></textarea>
+            </div>
+            <button type="submit" class="w-full rounded-full bg-forest px-5 py-3.5 text-sm font-semibold text-paper hover:bg-terracotta">Save This Memory <i class="fa-solid fa-book-open ml-2"></i></button>
+          </form>
+          <p id="diaryMessage" class="mt-3 text-sm" aria-live="polite"></p>
+        </div>
+      </div>
+
+      <div class="mt-12">
+        <div class="flex items-end justify-between gap-4">
+          <h3 class="text-4xl">Pages from your journey</h3>
+          <span id="diaryCount" class="text-xs text-ink/60 dark:text-slate-400">0 memories</span>
+        </div>
+        <div id="diaryEntries" class="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <p class="text-sm text-ink/60 dark:text-slate-400">Your saved travel memories will appear here.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="reviews" class="bg-[#E9DECC] py-16 dark:bg-slate-900 lg:py-24">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
+        <div class="grid gap-8 md:grid-cols-2 md:items-end">
+          <div>
+            <p class="text-[10px] font-semibold uppercase tracking-[.3em] text-terracotta">Stories from fellow explorers</p>
+            <h2 class="mt-3 text-5xl leading-none sm:text-6xl">The Traveller's <span class="italic text-terracotta">Corner.</span></h2>
+          </div>
+          <p class="max-w-lg text-sm leading-7 text-ink/70 dark:text-slate-300">Share a travel tip, recommend a destination or leave a little inspiration for the next explorer.</p>
+        </div>
+
+        <div class="mt-10 grid gap-8 md:grid-cols-2">
+          <div>
+            <h3 class="text-3xl">Leave a little wisdom</h3>
+            <form id="reviewForm" class="mt-5 space-y-4">
+              <div>
+                <label for="reviewName" class="mb-2 block text-xs font-semibold uppercase tracking-wider">Your name</label>
+                <input id="reviewName" type="text" required maxlength="60" placeholder="Explorer name" class="w-full rounded-sm border border-forest/20 bg-paper px-4 py-3 text-sm outline-none focus:border-terracotta dark:border-slate-600 dark:bg-slate-950">
+              </div>
+              <div>
+                <label for="reviewCountry" class="mb-2 block text-xs font-semibold uppercase tracking-wider">Destination</label>
+                <input id="reviewCountry" type="text" required maxlength="80" placeholder="Which place are you reviewing?" class="w-full rounded-sm border border-forest/20 bg-paper px-4 py-3 text-sm outline-none focus:border-terracotta dark:border-slate-600 dark:bg-slate-950">
+              </div>
+              <div>
+                <label for="reviewRating" class="mb-2 block text-xs font-semibold uppercase tracking-wider">Your rating</label>
+                <select id="reviewRating" class="w-full rounded-sm border border-forest/20 bg-paper px-4 py-3 text-sm outline-none focus:border-terracotta dark:border-slate-600 dark:bg-slate-950">
+                  <option value="5">★★★★★ — Loved every moment</option>
+                  <option value="4">★★★★☆ — Really wonderful</option>
+                  <option value="3">★★★☆☆ — Worth the visit</option>
+                  <option value="2">★★☆☆☆ — Could be better</option>
+                  <option value="1">★☆☆☆☆ — Not for me</option>
+                </select>
+              </div>
+              <div>
+                <label for="reviewText" class="mb-2 block text-xs font-semibold uppercase tracking-wider">Your review</label>
+                <textarea id="reviewText" rows="4" required maxlength="1000" placeholder="What should other travellers know?" class="w-full rounded-sm border border-forest/20 bg-paper px-4 py-3 text-sm outline-none focus:border-terracotta dark:border-slate-600 dark:bg-slate-950"></textarea>
+              </div>
+              <button type="submit" class="rounded-full bg-forest px-6 py-3.5 text-sm font-semibold text-paper hover:bg-terracotta">Share Your Review <i class="fa-solid fa-paper-plane ml-2"></i></button>
+            </form>
+            <p id="reviewMessage" class="mt-3 text-sm" aria-live="polite"></p>
+          </div>
+
+          <div>
+            <h3 class="text-3xl">Explorer notes</h3>
+            <p class="mt-2 text-sm text-ink/60 dark:text-slate-400">Community notes saved in this browser.</p>
+            <div id="reviewsList" class="mt-5 space-y-4">
+              <div class="border-t border-forest/20 py-5 dark:border-slate-700">
+                <p class="text-sm text-ink/60 dark:text-slate-400">Your community reviews will appear here once you add one.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="plan" class="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-12 lg:py-24">
+      <div class="grid gap-10 md:grid-cols-2 md:items-start">
+        <div>
+          <p class="text-[10px] font-semibold uppercase tracking-[.3em] text-terracotta">Your next chapter begins here</p>
+          <h2 class="mt-4 text-5xl leading-[.95] sm:text-6xl lg:text-7xl">Let's plan your <span class="italic text-terracotta">escape.</span></h2>
+          <p class="mt-5 max-w-lg text-sm leading-7 text-ink/70 dark:text-slate-300">
+            Tell us what kind of traveller you are and what you feel like exploring. We'll suggest destinations to get your imagination going.
+          </p>
+          <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1000&q=85" alt="Travel journal, map and travel essentials" loading="lazy" class="mt-8 h-64 w-full object-cover sm:h-80">
+        </div>
+
+        <div class="border border-forest/20 bg-[#E9DECC] p-6 dark:border-slate-700 dark:bg-slate-900 sm:p-8">
+          <h3 class="text-3xl">Your little adventure finder</h3>
+          <p class="mt-2 text-sm text-ink/60 dark:text-slate-400">Choose your mood and preferred region.</p>
+
+          <form id="tripForm" class="mt-6 space-y-5">
+            <div>
+              <label for="tripStyle" class="mb-2 block text-xs font-semibold uppercase tracking-wider">What's your travel mood?</label>
+              <select id="tripStyle" required class="w-full rounded-sm border border-forest/20 bg-paper px-4 py-3.5 text-sm outline-none focus:border-terracotta dark:border-slate-600 dark:bg-slate-950">
+                <option value="adventure">Adventure & adrenaline</option>
+                <option value="culture">Culture & history</option>
+                <option value="relax">Slow days & relaxation</option>
+                <option value="nature">Nature & mountains</option>
+                <option value="food">Food & local flavours</option>
+                <option value="romantic">Romantic getaway</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="tripRegion" class="mb-2 block text-xs font-semibold uppercase tracking-wider">Where would you like to go?</label>
+              <select id="tripRegion" required class="w-full rounded-sm border border-forest/20 bg-paper px-4 py-3.5 text-sm outline-none focus:border-terracotta dark:border-slate-600 dark:bg-slate-950">
+                <option value="any">Surprise me — anywhere</option>
+                <option value="Asia">Asia</option>
+                <option value="Europe">Europe</option>
+                <option value="Africa">Africa</option>
+                <option value="Americas">North & South America</option>
+                <option value="Oceania">Oceania</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="tripNotes" class="mb-2 block text-xs font-semibold uppercase tracking-wider">Anything else? (optional)</label>
+              <textarea id="tripNotes" rows="3" placeholder="Budget, travel dates, who is coming along..." class="w-full resize-y rounded-sm border border-forest/20 bg-paper px-4 py-3 text-sm outline-none focus:border-terracotta dark:border-slate-600 dark:bg-slate-950"></textarea>
+            </div>
+
+            <button type="submit" class="w-full rounded-full bg-forest px-6 py-4 text-sm font-semibold text-paper transition hover:bg-terracotta">
+              Find My Adventure <i class="fa-solid fa-compass ml-2"></i>
+            </button>
+          </form>
+
+          <div id="tripResult" class="mt-6 hidden" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="tools" class="bg-forest py-16 text-paper lg:py-24">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
+        <p class="text-[10px] uppercase tracking-[.3em] text-[#D99A72]">Travel smarter, wander further</p>
+        <h2 class="mt-3 text-5xl leading-none sm:text-6xl lg:text-7xl">An Explorer's <span class="italic text-[#D99A72]">Toolkit.</span></h2>
+        <p class="mt-4 max-w-xl text-sm leading-7 text-paper/70">A few useful little helpers to make your next adventure easier to plan.</p>
+
+        <div class="mt-10 grid gap-6 md:grid-cols-3">
+
+          <div class="border border-paper/25 p-6">
+            <i class="fa-solid fa-wallet text-2xl text-[#D99A72]"></i>
+            <h3 class="mt-4 text-3xl">Budget Calculator</h3>
+            <p class="mt-2 text-sm leading-6 text-paper/70">Estimate your total trip budget.</p>
+
+            <label for="budgetDays" class="mt-5 block text-xs uppercase tracking-wider">Number of days</label>
+            <input id="budgetDays" type="number" min="1" max="365" value="5" class="mt-2 w-full rounded-sm bg-paper px-4 py-3 text-sm text-ink outline-none">
+
+            <label for="budgetDaily" class="mt-4 block text-xs uppercase tracking-wider">Daily budget (₹)</label>
+            <input id="budgetDaily" type="number" min="0" value="2500" class="mt-2 w-full rounded-sm bg-paper px-4 py-3 text-sm text-ink outline-none">
+
+            <label for="budgetTravel" class="mt-4 block text-xs uppercase tracking-wider">Travel costs (₹)</label>
+            <input id="budgetTravel" type="number" min="0" value="5000" class="mt-2 w-full rounded-sm bg-paper px-4 py-3 text-sm text-ink outline-none">
+
+            <button id="calculateBudgetBtn" type="button" class="mt-5 w-full rounded-full bg-paper px-4 py-3 text-sm font-semibold text-forest hover:bg-[#D99A72]">Calculate Budget</button>
+            <p id="budgetResult" class="mt-4 text-sm text-[#D99A72]" aria-live="polite">Estimated total: ₹17,500</p>
+          </div>
+
+
+          <div class="border border-paper/25 p-6">
+            <i class="fa-solid fa-suitcase text-2xl text-[#D99A72]"></i>
+            <h3 class="mt-4 text-3xl">Packing Checklist</h3>
+            <p class="mt-2 text-sm leading-6 text-paper/70">Tick off essentials as you pack.</p>
+
+            <div id="packingList" class="mt-5 space-y-3 text-sm">
+              <label class="flex items-center gap-3"><input type="checkbox" class="packing-item accent-[#D99A72]"> Passport / ID</label>
+              <label class="flex items-center gap-3"><input type="checkbox" class="packing-item accent-[#D99A72]"> Tickets & bookings</label>
+              <label class="flex items-center gap-3"><input type="checkbox" class="packing-item accent-[#D99A72]"> Phone & charger</label>
+              <label class="flex items-center gap-3"><input type="checkbox" class="packing-item accent-[#D99A72]"> Clothes & footwear</label>
+              <label class="flex items-center gap-3"><input type="checkbox" class="packing-item accent-[#D99A72]"> Toiletries & medicines</label>
+              <label class="flex items-center gap-3"><input type="checkbox" class="packing-item accent-[#D99A72]"> Water bottle</label>
+              <label class="flex items-center gap-3"><input type="checkbox" class="packing-item accent-[#D99A72]"> Camera & power bank</label>
+              <label class="flex items-center gap-3"><input type="checkbox" class="packing-item accent-[#D99A72]"> Travel insurance</label>
+            </div>
+
+            <div class="mt-5 h-1.5 overflow-hidden rounded-full bg-paper/20">
+              <div id="packingProgress" class="h-full w-0 bg-[#D99A72] transition-all"></div>
+            </div>
+            <p id="packingProgressText" class="mt-2 text-xs text-paper/60">0 of 8 packed</p>
+            <button id="resetPackingBtn" type="button" class="mt-4 text-xs text-[#D99A72] underline">Reset checklist</button>
+          </div>
+
+
+          <div class="border border-paper/25 p-6">
+            <i class="fa-regular fa-clock text-2xl text-[#D99A72]"></i>
+            <h3 class="mt-4 text-3xl">World Clock</h3>
+            <p class="mt-2 text-sm leading-6 text-paper/70">Check the local time before calling your travel buddies.</p>
+
+            <label for="clockCity" class="mt-5 block text-xs uppercase tracking-wider">Choose a destination</label>
+            <select id="clockCity" class="mt-2 w-full rounded-sm bg-paper px-4 py-3 text-sm text-ink outline-none">
+              <option value="Asia/Kolkata">Jaipur / New Delhi</option>
+              <option value="Asia/Tokyo">Tokyo</option>
+              <option value="Europe/Paris">Paris</option>
+              <option value="Europe/London">London</option>
+              <option value="America/New_York">New York</option>
+              <option value="America/Los_Angeles">Los Angeles</option>
+              <option value="Asia/Dubai">Dubai</option>
+              <option value="Asia/Singapore">Singapore</option>
+              <option value="Australia/Sydney">Sydney</option>
+            </select>
+
+            <p id="worldClockTime" class="mt-7 text-4xl text-[#D99A72]">--:--:--</p>
+            <p id="worldClockDate" class="mt-2 text-sm text-paper/70">Loading local time...</p>
+            <p class="mt-5 border-t border-paper/20 pt-4 text-xs leading-5 text-paper/60">Times update automatically using the selected city's time zone.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="newsletter" class="mx-auto max-w-5xl px-5 py-16 text-center sm:px-8 lg:py-24">
+      <i class="fa-regular fa-envelope text-3xl text-terracotta"></i>
+      <p class="mt-5 text-[10px] font-semibold uppercase tracking-[.3em] text-terracotta">A little wanderlust in your inbox</p>
+      <h2 class="mt-3 text-5xl leading-none sm:text-6xl lg:text-7xl">Letters from <span class="italic text-terracotta">elsewhere.</span></h2>
+      <p class="mx-auto mt-5 max-w-xl text-sm leading-7 text-ink/70 dark:text-slate-300">Get destination inspiration, travel ideas and little reminders that the world is waiting for you.</p>
+
+      <form id="newsletterForm" class="mx-auto mt-8 flex max-w-xl flex-col gap-3 sm:flex-row">
+        <label for="newsletterEmail" class="sr-only">Your email address</label>
+        <input id="newsletterEmail" type="email" required placeholder="Your email address" class="min-w-0 flex-1 rounded-full border border-forest/25 bg-transparent px-5 py-4 text-sm outline-none focus:border-terracotta dark:border-slate-600">
+        <button type="submit" class="rounded-full bg-forest px-7 py-4 text-sm font-semibold text-paper transition hover:bg-terracotta">Count Me In <i class="fa-solid fa-arrow-right ml-2"></i></button>
+      </form>
+      <p id="newsletterMessage" class="mt-4 text-sm" aria-live="polite"></p>
+      <p class="mt-3 text-xs text-ink/50 dark:text-slate-500">No spam. Just stories, inspiration and a little wanderlust.</p>
+    </section>
+
+    <footer class="bg-forest py-12 text-paper">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
+        <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+          <div class="sm:col-span-2">
+            <a href="#home" class="inline-flex items-center gap-3" aria-label="HeyRomies home">
+              <span class="flex h-12 w-12 items-center justify-center rounded-full bg-[#D99A72] text-forest">
+                <svg viewBox="0 0 100 100" class="h-9 w-9" fill="currentColor" aria-hidden="true">
+                  <path d="M50 5 59 34 86 19 68 44 96 52 68 60 79 91 50 70 21 91 32 60 4 52 32 44 14 19 41 34Z"/>
+                  <circle cx="50" cy="52" r="10" fill="#F4EBDD"/>
+                  <path d="M50 28v12M50 64v12M27 52h12M61 52h12" stroke="#193A2E" stroke-width="3" stroke-linecap="round"/>
+                </svg>
+              </span>
+              <span>
+                <span class="block text-3xl tracking-[.08em]">HeyRomies</span>
+                <span class="mt-1 block text-[9px] uppercase tracking-[.25em] text-paper/60">Collect moments, not just miles</span>
+              </span>
+            </a>
+            <p class="mt-5 max-w-sm text-sm leading-6 text-paper/65">For the curious, the adventurous and the ones who always take the scenic route.</p>
+          </div>
+
+          <div>
+            <h3 class="text-2xl">Explore</h3>
+            <div class="mt-4 flex flex-col gap-3 text-sm text-paper/70">
+              <a href="#destinations" class="hover:text-[#D99A72]">Destinations</a>
+              <a href="#adventures" class="hover:text-[#D99A72]">Adventure</a>
+              <a href="#culture" class="hover:text-[#D99A72]">Culture</a>
+              <a href="#explorer" class="hover:text-[#D99A72]">Country Explorer</a>
+              <a href="#hidden-gems" class="hover:text-[#D99A72]">Hidden Gems</a>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-2xl">Your Journey</h3>
+            <div class="mt-4 flex flex-col gap-3 text-sm text-paper/70">
+              <a href="#passport" class="hover:text-[#D99A72]">Travel Passport</a>
+              <a href="#wishlist" class="hover:text-[#D99A72]">Wishlist</a>
+              <a href="#diary" class="hover:text-[#D99A72]">Travel Diary</a>
+              <a href="#reviews" class="hover:text-[#D99A72]">Community</a>
+              <a href="#tools" class="hover:text-[#D99A72]">Explorer Tools</a>
+              <a href="#plan" class="hover:text-[#D99A72]">Trip Planner</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-10 flex flex-col justify-between gap-4 border-t border-paper/20 pt-6 text-xs text-paper/55 sm:flex-row sm:items-center">
+          <p>© <span id="copyrightYear">2026</span> HeyRomies. Made for the love of exploring.</p>
+          <a href="#home" class="hover:text-[#D99A72]">Back to top ↑</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+
+  <script type="module" src="./js/app.js"></script>
+
+
+  <script>
+    (() => {
+      "use strict";
+
+      const $ = (id) => document.getElementById(id);
+
+      function readStore(key, fallback = []) {
+        try {
+          const value = JSON.parse(localStorage.getItem(key));
+          return value ?? fallback;
+        } catch (error) {
+          return fallback;
+        }
+      }
+
+      function writeStore(key, value) {
+        try {
+          localStorage.setItem(key, JSON.stringify(value));
+          return true;
+        } catch (error) {
+          return false;
+        }
+      }
+
+      function escapeHTML(value) {
+        return String(value ?? "").replace(/[&<>"']/g, (char) => ({
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          '"': "&quot;",
+          "'": "&#039;"
+        })[char]);
+      }
+
+      const mobileMenuBtn = $("mobileMenuBtn");
+      const mobileMenu = $("mobileMenu");
+
+      mobileMenuBtn?.addEventListener("click", () => {
+        const isHidden = mobileMenu.classList.toggle("hidden");
+        mobileMenuBtn.setAttribute("aria-expanded", String(!isHidden));
+        mobileMenuBtn.innerHTML = isHidden
+          ? '<i class="fa-solid fa-bars"></i>'
+          : '<i class="fa-solid fa-xmark"></i>';
+      });
+
+      mobileMenu?.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+          mobileMenuBtn?.setAttribute("aria-expanded", "false");
+          if (mobileMenuBtn) mobileMenuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+        });
+      });
+
+
+      $("searchFocusBtn")?.addEventListener("click", () => {
+        document.getElementById("explorer")?.scrollIntoView({ behavior: "smooth" });
+        setTimeout(() => $("searchInput")?.focus(), 500);
+      });
+
+      $("clearFiltersBtn")?.addEventListener("click", () => {
+        if ($("searchInput")) $("searchInput").value = "";
+        if ($("regionFilter")) $("regionFilter").value = "all";
+        if ($("sortSelect")) $("sortSelect").value = "name";
+        $("searchInput")?.dispatchEvent(new Event("input", { bubbles: true }));
+        $("regionFilter")?.dispatchEvent(new Event("change", { bubbles: true }));
+        $("sortSelect")?.dispatchEvent(new Event("change", { bubbles: true }));
+      });
+
+      $("retryCountriesBtn")?.addEventListener("click", () => $("refreshBtn")?.click());
+
+      const PASSPORT_KEY = "heyromies-visited-countries";
+
+      function renderPassport() {
+        const countries = readStore(PASSPORT_KEY);
+        if ($("visitedCount")) $("visitedCount").textContent = countries.length;
+        if ($("passportMemoryCount")) $("passportMemoryCount").textContent = readStore("heyromies-diary").length;
+
+        const list = $("visitedCountriesList");
+        if (!list) return;
+
+        list.innerHTML = countries.length
+          ? countries.map((country, index) => `
+              <span class="inline-flex items-center gap-2 rounded-full border border-forest/20 px-3 py-2 text-xs dark:border-slate-600">
+                <i class="fa-solid fa-stamp text-terracotta"></i>
+                ${escapeHTML(country.name)}
+                <button type="button" data-remove-visit="${index}" aria-label="Remove ${escapeHTML(country.name)}" class="ml-1 hover:text-terracotta"><i class="fa-solid fa-xmark"></i></button>
+              </span>
+            `).join("")
+          : '<p class="text-xs text-ink/60 dark:text-slate-400">No passport stamps yet. Add your first country above!</p>';
+      }
+
+      $("passportForm")?.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const name = $("visitedCountry").value.trim();
+        if (!name) return;
+
+        const countries = readStore(PASSPORT_KEY);
+        if (countries.some((country) => country.name.toLowerCase() === name.toLowerCase())) {
+          $("passportMessage").textContent = "You've already added this country!";
+          return;
+        }
+
+        countries.push({ name, date: $("visitedDate").value || "" });
+        writeStore(PASSPORT_KEY, countries);
+        $("visitedCountry").value = "";
+        $("visitedDate").value = "";
+        $("passportMessage").textContent = "Passport stamp added!";
+        renderPassport();
+      });
+
+      $("visitedCountriesList")?.addEventListener("click", (event) => {
+        const button = event.target.closest("[data-remove-visit]");
+        if (!button) return;
+        const countries = readStore(PASSPORT_KEY);
+        countries.splice(Number(button.dataset.removeVisit), 1);
+        writeStore(PASSPORT_KEY, countries);
+        renderPassport();
+      });
+
+      renderPassport();
+
+      const WISHLIST_KEY = "heyromies-wishlist";
+
+      function renderWishlist() {
+        const grid = $("wishlistGrid");
+        if (!grid) return;
+
+        const items = readStore(WISHLIST_KEY);
+        if (!items.length) {
+          grid.innerHTML = `
+            <div class="border border-forest/20 p-6 text-sm text-ink/60 dark:border-slate-700 dark:text-slate-400 sm:col-span-2 lg:col-span-3">
+              Your wishlist is waiting for a dream destination. Use the heart button on a country card to save places here.
+            </div>`;
+          return;
+        }
+
+        grid.innerHTML = items.map((item, index) => `
+          <article class="border border-forest/20 p-5 dark:border-slate-700">
+            <div class="flex items-start justify-between gap-3">
+              <div>
+                <p class="text-[10px] uppercase tracking-[.2em] text-terracotta">Dream destination</p>
+                <h3 class="mt-2 text-3xl">${escapeHTML(item.name || item)}</h3>
+                ${item.region ? `<p class="mt-1 text-xs text-ink/60 dark:text-slate-400">${escapeHTML(item.region)}</p>` : ""}
+              </div>
+              <i class="fa-solid fa-heart text-terracotta"></i>
+            </div>
+            <button type="button" data-remove-wish="${index}" class="mt-5 text-xs underline">Remove from wishlist</button>
+          </article>
+        `).join("");
+      }
+
+      $("wishlistGrid")?.addEventListener("click", (event) => {
+        const button = event.target.closest("[data-remove-wish]");
+        if (!button) return;
+        const items = readStore(WISHLIST_KEY);
+        items.splice(Number(button.dataset.removeWish), 1);
+        writeStore(WISHLIST_KEY, items);
+        renderWishlist();
+      });
+
+      document.addEventListener("click", (event) => {
+        const button = event.target.closest("[data-favorite], [data-wishlist-country]");
+        if (!button) return;
+
+        const name = button.dataset.favorite || button.dataset.wishlistCountry ||
+          button.closest("[data-country-name]")?.dataset.countryName;
+
+        if (!name || name === "true") return;
+
+        const items = readStore(WISHLIST_KEY);
+        const exists = items.some((item) => (item.name || item).toLowerCase() === name.toLowerCase());
+
+        if (exists) {
+          writeStore(WISHLIST_KEY, items.filter((item) => (item.name || item).toLowerCase() !== name.toLowerCase()));
+        } else {
+          items.push({ name });
+          writeStore(WISHLIST_KEY, items);
+        }
+        renderWishlist();
+      });
+
+      renderWishlist();
+
+      const DIARY_KEY = "heyromies-diary";
+
+      function renderDiary() {
+        const entries = readStore(DIARY_KEY);
+        const container = $("diaryEntries");
+        if ($("diaryCount")) $("diaryCount").textContent = `${entries.length} ${entries.length === 1 ? "memory" : "memories"}`;
+        if ($("passportMemoryCount")) $("passportMemoryCount").textContent = entries.length;
+        if (!container) return;
+
+        if (!entries.length) {
+          container.innerHTML = '<p class="text-sm text-ink/60 dark:text-slate-400">Your saved travel memories will appear here.</p>';
+          return;
+        }
+
+        container.innerHTML = entries.map((entry, index) => `
+          <article class="overflow-hidden border border-forest/20 dark:border-slate-700">
+            ${entry.photo ? `<img src="${entry.photo}" alt="Photo for ${escapeHTML(entry.title)}" loading="lazy" class="h-48 w-full object-cover">` : ""}
+            <div class="p-5">
+              <p class="text-[10px] uppercase tracking-[.2em] text-terracotta">${escapeHTML(entry.place)}${entry.date ? " · " + escapeHTML(entry.date) : ""}</p>
+              <h3 class="mt-2 text-3xl">${escapeHTML(entry.title)}</h3>
+              <p class="mt-3 whitespace-pre-wrap text-sm leading-6 text-ink/70 dark:text-slate-300">${escapeHTML(entry.story)}</p>
+              <button type="button" data-remove-memory="${index}" class="mt-4 text-xs underline">Delete memory</button>
+            </div>
+          </article>
+        `).join("");
+      }
+
+      $("diaryForm")?.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const file = $("diaryPhoto")?.files?.[0];
+        const saveEntry = (photo = "") => {
+          const entries = readStore(DIARY_KEY);
+          entries.unshift({
+            title: $("diaryTitle").value.trim(),
+            place: $("diaryPlace").value.trim(),
+            date: $("diaryDate").value,
+            story: $("diaryStory").value.trim(),
+            photo,
+            createdAt: new Date().toISOString()
+          });
+
+          if (!writeStore(DIARY_KEY, entries)) {
+            $("diaryMessage").textContent = "Storage is full. Try a smaller photo or remove older memories.";
+            return;
+          }
+
+          $("diaryForm").reset();
+          $("diaryMessage").textContent = "Memory saved to your diary!";
+          renderDiary();
+          renderPassport();
+        };
+
+        if (file) {
+          if (!file.type.startsWith("image/")) {
+            $("diaryMessage").textContent = "Please select an image file.";
+            return;
+          }
+          if (file.size > 700000) {
+            $("diaryMessage").textContent = "Please choose an image smaller than 700 KB.";
+            return;
+          }
+
+          const reader = new FileReader();
+          reader.onload = () => saveEntry(reader.result);
+          reader.onerror = () => {
+            $("diaryMessage").textContent = "Could not read that image. Try another one.";
+          };
+          reader.readAsDataURL(file);
+        } else {
+          saveEntry();
+        }
+      });
+
+      $("diaryEntries")?.addEventListener("click", (event) => {
+        const button = event.target.closest("[data-remove-memory]");
+        if (!button) return;
+        const entries = readStore(DIARY_KEY);
+        entries.splice(Number(button.dataset.removeMemory), 1);
+        writeStore(DIARY_KEY, entries);
+        renderDiary();
+        renderPassport();
+      });
+
+      renderDiary();
+
+      const REVIEWS_KEY = "heyromies-reviews";
+
+      function renderReviews() {
+        const list = $("reviewsList");
+        if (!list) return;
+        const reviews = readStore(REVIEWS_KEY);
+
+        if (!reviews.length) {
+          list.innerHTML = '<div class="border-t border-forest/20 py-5 dark:border-slate-700"><p class="text-sm text-ink/60 dark:text-slate-400">Your community reviews will appear here once you add one.</p></div>';
+          return;
+        }
+
+        list.innerHTML = reviews.map((review, index) => `
+          <article class="border-t border-forest/20 py-5 dark:border-slate-700">
+            <div class="flex items-start justify-between gap-3">
+              <div>
+                <p class="text-xs uppercase tracking-[.15em] text-terracotta">${escapeHTML(review.country)}</p>
+                <h4 class="mt-1 text-2xl">${escapeHTML(review.name)}</h4>
+              </div>
+              <span class="text-sm tracking-wider text-terracotta">${"★".repeat(review.rating)}${"☆".repeat(5 - review.rating)}</span>
+            </div>
+            <p class="mt-3 whitespace-pre-wrap text-sm leading-6 text-ink/75 dark:text-slate-300">${escapeHTML(review.text)}</p>
+            <button type="button" data-remove-review="${index}" class="mt-3 text-xs underline">Delete review</button>
+          </article>
+        `).join("");
+      }
+
+      $("reviewForm")?.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const reviews = readStore(REVIEWS_KEY);
+        reviews.unshift({
+          name: $("reviewName").value.trim(),
+          country: $("reviewCountry").value.trim(),
+          rating: Number($("reviewRating").value),
+          text: $("reviewText").value.trim(),
+          createdAt: new Date().toISOString()
+        });
+
+        if (!writeStore(REVIEWS_KEY, reviews)) {
+          $("reviewMessage").textContent = "Could not save the review. Your browser storage may be full.";
+          return;
+        }
+
+        $("reviewForm").reset();
+        $("reviewMessage").textContent = "Your review has been saved in this browser!";
+        renderReviews();
+      });
+
+      $("reviewsList")?.addEventListener("click", (event) => {
+        const button = event.target.closest("[data-remove-review]");
+        if (!button) return;
+        const reviews = readStore(REVIEWS_KEY);
+        reviews.splice(Number(button.dataset.removeReview), 1);
+        writeStore(REVIEWS_KEY, reviews);
+        renderReviews();
+      });
+
+      renderReviews();
+
+      const tripIdeas = {
+        adventure: {
+          Asia: ["Nepal", "Indonesia", "Thailand"],
+          Europe: ["Switzerland", "Norway", "Iceland"],
+          Africa: ["Morocco", "Tanzania", "South Africa"],
+          Americas: ["Costa Rica", "Peru", "Canada"],
+          Oceania: ["New Zealand", "Australia", "Fiji"],
+          any: ["New Zealand", "Nepal", "Costa Rica"]
+        },
+        culture: {
+          Asia: ["Japan", "India", "Vietnam"],
+          Europe: ["Italy", "Greece", "France"],
+          Africa: ["Egypt", "Morocco", "Ethiopia"],
+          Americas: ["Mexico", "Peru", "Cuba"],
+          Oceania: ["Australia", "New Zealand", "Fiji"],
+          any: ["Japan", "Italy", "Morocco"]
+        },
+        relax: {
+          Asia: ["Maldives", "Bali, Indonesia", "Thailand"],
+          Europe: ["Greece", "Portugal", "Italy"],
+          Africa: ["Mauritius", "Seychelles", "Morocco"],
+          Americas: ["Mexico", "Bahamas", "Costa Rica"],
+          Oceania: ["Fiji", "Australia", "New Zealand"],
+          any: ["Maldives", "Greece", "Mauritius"]
+        },
+        nature: {
+          Asia: ["Nepal", "Bhutan", "Japan"],
+          Europe: ["Switzerland", "Norway", "Austria"],
+          Africa: ["Tanzania", "Kenya", "South Africa"],
+          Americas: ["Canada", "Peru", "Costa Rica"],
+          Oceania: ["New Zealand", "Australia", "Fiji"],
+          any: ["Switzerland", "Nepal", "New Zealand"]
+        },
+        food: {
+          Asia: ["Japan", "Thailand", "India"],
+          Europe: ["Italy", "France", "Spain"],
+          Africa: ["Morocco", "Egypt", "South Africa"],
+          Americas: ["Mexico", "Peru", "United States"],
+          Oceania: ["Australia", "New Zealand", "Fiji"],
+          any: ["Italy", "Japan", "Mexico"]
+        },
+        romantic: {
+          Asia: ["Maldives", "Bali, Indonesia", "Japan"],
+          Europe: ["Italy", "France", "Greece"],
+          Africa: ["Mauritius", "Seychelles", "Morocco"],
+          Americas: ["Bahamas", "Mexico", "Canada"],
+          Oceania: ["Fiji", "New Zealand", "Australia"],
+          any: ["Italy", "Maldives", "Greece"]
+        }
+      };
+
+      const tripDescriptions = {
+        adventure: "Bring your adventurous side. Look for outdoor activities, scenic routes and unforgettable experiences.",
+        culture: "Take your time with historic places, local traditions, architecture and authentic food.",
+        relax: "Slow down, enjoy beautiful surroundings and leave room for peaceful, unplanned moments.",
+        nature: "Discover remarkable landscapes, peaceful trails and places to reconnect with nature.",
+        food: "Explore markets, try regional specialities and discover the stories behind local dishes.",
+        romantic: "Think beautiful scenery, memorable dinners and time to enjoy a place together."
+      };
+
+      $("tripForm")?.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const mood = $("tripStyle").value;
+        const region = $("tripRegion").value;
+        const notes = $("tripNotes").value.trim();
+        const suggestions = tripIdeas[mood]?.[region] || tripIdeas[mood]?.any || tripIdeas.adventure.any;
+
+        $("tripResult").classList.remove("hidden");
+        $("tripResult").innerHTML = `
+          <div class="border-t border-forest/20 pt-5 dark:border-slate-700">
+            <p class="text-[10px] uppercase tracking-[.25em] text-terracotta">Made for your mood</p>
+            <h3 class="mt-2 text-3xl">Your next adventure</h3>
+            <p class="mt-2 text-sm leading-6 text-ink/70 dark:text-slate-300">${escapeHTML(tripDescriptions[mood] || "")}</p>
+            <div class="mt-4 grid gap-3 sm:grid-cols-3">
+              ${suggestions.map((place, index) => `
+                <div class="border border-forest/20 p-4 dark:border-slate-700">
+                  <span class="text-xs text-terracotta">0${index + 1}</span>
+                  <h4 class="mt-2 text-2xl">${escapeHTML(place)}</h4>
+                  <button type="button" data-save-trip="${escapeHTML(place)}" class="mt-3 text-xs underline">Add to wishlist +</button>
+                </div>
+              `).join("")}
+            </div>
+            ${notes ? `<p class="mt-4 text-xs text-ink/60 dark:text-slate-400">Your travel notes: ${escapeHTML(notes)}</p>` : ""}
+            <p class="mt-4 text-xs text-ink/60 dark:text-slate-400">These are inspiration ideas, not live bookings. Check travel requirements and current conditions before your trip.</p>
+          </div>
+        `;
+      });
+
+      $("tripResult")?.addEventListener("click", (event) => {
+        const button = event.target.closest("[data-save-trip]");
+        if (!button) return;
+
+        const name = button.dataset.saveTrip;
+        const items = readStore(WISHLIST_KEY);
+
+        if (!items.some((item) => (item.name || item).toLowerCase() === name.toLowerCase())) {
+          items.push({ name });
+          writeStore(WISHLIST_KEY, items);
+          renderWishlist();
+          button.textContent = "Added to wishlist ✓";
+        } else {
+          button.textContent = "Already saved ✓";
+        }
+      });
+
+      function calculateBudget() {
+        const days = Math.max(1, Number($("budgetDays")?.value) || 1);
+        const daily = Math.max(0, Number($("budgetDaily")?.value) || 0);
+        const travel = Math.max(0, Number($("budgetTravel")?.value) || 0);
+        const total = days * daily + travel;
+
+        if ($("budgetResult")) {
+          $("budgetResult").textContent = `Estimated total: ${total.toLocaleString("en-IN", {
+            style: "currency",
+            currency: "INR",
+            maximumFractionDigits: 0
+          })}`;
+        }
+      }
+
+      $("calculateBudgetBtn")?.addEventListener("click", calculateBudget);
+      ["budgetDays", "budgetDaily", "budgetTravel"].forEach((id) => {
+        $(id)?.addEventListener("input", calculateBudget);
+      });
+      calculateBudget();
+
+      const packingItems = Array.from(document.querySelectorAll(".packing-item"));
+
+      function updatePackingProgress() {
+        const checked = packingItems.filter((item) => item.checked).length;
+        if ($("packingProgress")) $("packingProgress").style.width = `${checked / Math.max(packingItems.length, 1) * 100}%`;
+        if ($("packingProgressText")) $("packingProgressText").textContent = `${checked} of ${packingItems.length} packed`;
+      }
+
+      packingItems.forEach((item, index) => {
+        item.checked = readStore("heyromies-packing", [])[index] === true;
+        item.addEventListener("change", () => {
+          writeStore("heyromies-packing", packingItems.map((checkbox) => checkbox.checked));
+          updatePackingProgress();
+        });
+      });
+
+      $("resetPackingBtn")?.addEventListener("click", () => {
+        packingItems.forEach((item) => item.checked = false);
+        writeStore("heyromies-packing", packingItems.map(() => false));
+        updatePackingProgress();
+      });
+
+      updatePackingProgress();
+
+      function updateWorldClock() {
+        const zone = $("clockCity")?.value || "Asia/Kolkata";
+        const now = new Date();
+
+        try {
+          if ($("worldClockTime")) {
+            $("worldClockTime").textContent = new Intl.DateTimeFormat("en-IN", {
+              timeZone: zone,
+              hour: "2-digit",
+              minute: "2-digit",
+              second: "2-digit",
+              hour12: true
+            }).format(now);
+          }
+
+          if ($("worldClockDate")) {
+            $("worldClockDate").textContent = new Intl.DateTimeFormat("en-IN", {
+              timeZone: zone,
+              weekday: "long",
+              day: "numeric",
+              month: "long",
+              year: "numeric"
+            }).format(now);
+          }
+        } catch (error) {
+          if ($("worldClockTime")) $("worldClockTime").textContent = "Time unavailable";
+        }
+      }
+
+      $("clockCity")?.addEventListener("change", updateWorldClock);
+      updateWorldClock();
+      setInterval(updateWorldClock, 1000);
+
+      $("newsletterForm")?.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const email = $("newsletterEmail").value.trim().toLowerCase();
+        if (!email) return;
+
+        const subscribers = readStore("heyromies-newsletter", []);
+        if (subscribers.includes(email)) {
+          $("newsletterMessage").textContent = "You're already on this browser's list. Thanks for being here!";
+          return;
+        }
+
+        subscribers.push(email);
+        if (writeStore("heyromies-newsletter", subscribers)) {
+          $("newsletterMessage").textContent = "Thanks for joining our little travel community!";
+          $("newsletterForm").reset();
+        } else {
+          $("newsletterMessage").textContent = "Could not save your email in this browser.";
+        }
+      });
+
+      if ($("copyrightYear")) $("copyrightYear").textContent = new Date().getFullYear();
+
+    })();
+  </script>
+</body>
+</html>
