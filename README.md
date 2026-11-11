@@ -16,11 +16,10 @@ HeyRomies is a vintage-inspired World Explorer website that helps users discover
 
 - **Country Explorer:** Browse country information from around the world.
 - **Country Search:** Search countries by name, capital, region, and subregion.
-- **Debounced Search:** Waits until the user pauses typing before updating search results.
+- **Debounced Search:** Updates search results after the user pauses typing.
 - **Region Filter:** Filter countries according to geographical regions.
 - **Sorting:** Sort countries by name, population, and area.
 - **Country Details:** View capital, population, area, languages, currencies, continents, time zones, and border countries.
-- **Google Maps:** Open a country's location in Google Maps.
 - **Favourites:** Save and manage favourite countries.
 - **Country Comparison:** Compare up to three countries.
 - **Dark/Light Mode:** Switch between two visual themes.
@@ -52,6 +51,11 @@ HeyRomies/
 │
 ├── images/
 │   └── Project images
+│
+├── screenshots/
+│   ├── home.png
+│   ├── explore.png
+│   └── country-details.png
 │
 └── js/
     ├── api.js
@@ -111,7 +115,17 @@ The saved data remains in the user's browser and is not automatically synced acr
 
 ## 📸 Screenshots
 
-Project screenshots will be added here.
+### Home Page
+
+![HeyRomies Home Page](screenshots/home.png)
+
+### Explore Countries
+
+![Explore Countries](screenshots/explore.png)
+
+### Country Details
+
+![Country Details](screenshots/country-details.png)
 
 ## 🎨 Design Concept
 
