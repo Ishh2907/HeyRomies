@@ -41,9 +41,9 @@ function formatCountry(country, populationData) {
             })
         ),
         borders: country.borders || [],
-        maps: {},
-        mapUrl: "",
-        timezones: [],
+        maps: country.maps || {},
+        mapUrl: country.maps?.googleMaps || "",
+        timezones: country.timezones || [],
         continents: country.continents || [],
         independent: country.independent ?? null,
         landlocked: country.landlocked ?? false

@@ -14,6 +14,7 @@ import {
 let countries = [];
 let showFavoritesOnly = false;
 let visibleCountries = 8;
+let searchTimeout;
 
 const $ = (id) => document.getElementById(id);
 
@@ -81,6 +82,37 @@ function applyTheme(theme) {
 
 applyTheme(getTheme());
 
+
+function renderSkeletons() {
+  if (!countryGrid) return;
+
+  countryGrid.innerHTML = Array.from({ length: 8 }, () => `
+    <article
+      aria-hidden="true"
+      class="animate-pulse overflow-hidden border border-forest/15 bg-white/50 dark:border-slate-700 dark:bg-slate-900">
+
+      <div class="h-44 bg-gray-200 dark:bg-slate-700"></div>
+
+      <div class="space-y-4 p-5">
+        <div class="h-3 w-1/3 rounded bg-gray-200 dark:bg-slate-700"></div>
+
+        <div class="h-8 w-3/4 rounded bg-gray-200 dark:bg-slate-700"></div>
+
+        <div class="h-3 w-full rounded bg-gray-200 dark:bg-slate-700"></div>
+
+        <div class="h-3 w-2/3 rounded bg-gray-200 dark:bg-slate-700"></div>
+
+        <div class="mt-5 flex gap-2">
+          <div class="h-9 w-20 rounded bg-gray-200 dark:bg-slate-700"></div>
+          <div class="h-9 w-16 rounded bg-gray-200 dark:bg-slate-700"></div>
+          <div class="h-9 w-20 rounded bg-gray-200 dark:bg-slate-700"></div>
+        </div>
+      </div>
+    </article>
+  `).join("");
+}
+
+
 $("themeToggle")?.addEventListener("click", () => {
   const nextTheme =
     document.documentElement.classList.contains("dark")
@@ -116,7 +148,7 @@ async function loadCountries() {
   errorState?.classList.add("hidden");
   emptyState?.classList.add("hidden");
 
-  if (countryGrid) countryGrid.innerHTML = "";
+renderSkeletons();
 
   if (resultCount) resultCount.textContent = "Loading countries...";
 
@@ -130,6 +162,7 @@ async function loadCountries() {
     countries = data;
 
     loadingState?.classList.add("hidden");
+    if (countryGrid) countryGrid.innerHTML = "";
 
     updateFavoriteCount();
     renderCountries();
@@ -609,8 +642,12 @@ $("compareBtn")?.addEventListener("click", () => {
 });
 
 searchInput?.addEventListener("input", () => {
-  visibleCountries = 8;
-  renderCountries();
+  clearTimeout(searchTimeout);
+
+  searchTimeout = setTimeout(() => {
+    visibleCountries = 8;
+    renderCountries();
+  }, 300);
 });
 
 regionFilter?.addEventListener("change", () => {
