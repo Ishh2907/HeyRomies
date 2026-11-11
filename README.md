@@ -2,31 +2,43 @@
 
 **Collect moments, not just miles.**
 
-HeyRomies is a vintage-inspired travel discovery website designed for curious explorers. Discover countries, explore useful country information, save favourites, and compare destinations — all in one place.
+HeyRomies is a vintage-inspired World Explorer website that helps users discover countries, explore geographical information, search destinations, save favourites, and compare countries through a responsive and interactive interface.
+
+## 🌐 Live Demo
+
+[Visit HeyRomies](https://heyromies-nm4nkw21w-ishh2907.vercel.app/)
+
+## 📂 GitHub Repository
+
+[HeyRomies – GitHub](https://github.com/Ishh2907/HeyRomies)
 
 ## ✨ Features
 
-- **Country Explorer:** Browse countries from around the world.
-- **Live Country Data:** Fetch country information using external APIs.
-- **Search:** Find countries by name, capital, subregion, and region.
-- **Region Filters:** Explore countries by geographical region.
-- **Sorting:** Sort countries by name, population, or area.
-- **Favourites:** Save your favourite countries using browser storage.
-- **Country Details:** View capitals, population, area, languages, currencies, and other information.
+- **Country Explorer:** Browse country information from around the world.
+- **Country Search:** Search countries by name, capital, region, and subregion.
+- **Region Filter:** Filter countries according to geographical regions.
+- **Sorting:** Sort countries by name, population, and area.
+- **Country Details:** View capital, population, area, languages, currencies, continents, time zones, and border countries.
+- **Google Maps:** Open a country's location in Google Maps.
+- **Favourites:** Save and manage favourite countries.
 - **Country Comparison:** Compare up to three countries.
-- **Theme Toggle:** Switch between light and dark themes.
-- **Trip Planner:** Discover country suggestions based on your travel interests.
-- **Responsive Layout:** Explore the website on desktop and mobile screens.
+- **Dark/Light Mode:** Switch between two visual themes.
+- **Explore More:** Load additional country cards progressively.
+- **Local Storage:** Preserve favourites, comparison selections, and theme preferences.
+- **Responsive Design:** Works across desktop, tablet, and mobile devices.
+- **Loading and Error Handling:** Includes loading, error, empty, and retry states.
 
 ## 🛠️ Technologies Used
 
 - HTML5
 - Tailwind CSS
 - Vanilla JavaScript (ES Modules)
-- External APIs
+- Git and GitHub
+- Vercel
 - Font Awesome
 - Google Fonts
 - Browser Local Storage
+- External REST APIs
 
 ## 📁 Project Structure
 
@@ -36,82 +48,75 @@ HeyRomies/
 ├── index.html
 ├── README.md
 │
+├── images/
+│   └── Project images
+│
 └── js/
     ├── api.js
+    ├── app.js
     ├── format.js
     ├── storage.js
-    ├── ui.js
-    └── app.js
+    └── ui.js
 ```
 
 ## 🚀 Getting Started
 
-### 1. Download or Clone the Project
-
-If you have cloned the repository, use:
+### 1. Clone the Repository
 
 ```bash
-git clone YOUR_REPOSITORY_URL
+git clone https://github.com/Ishh2907/HeyRomies.git
 ```
-
-Alternatively, open the existing project folder in VS Code.
 
 ### 2. Open the Project
 
-Make sure `index.html` and the `js` folder are in the same project directory.
+```bash
+cd HeyRomies
+```
+
+Open the project folder in Visual Studio Code.
 
 ### 3. Run the Website
 
-For the best local development experience:
+1. Install the Live Server extension in VS Code.
+2. Open `index.html`.
+3. Right-click and select **Open with Live Server**.
 
-1. Open the project in VS Code.
-2. Install the **Live Server** extension if you do not already have it.
-3. Right-click `index.html`.
-4. Select **Open with Live Server**.
+An active internet connection is required for external APIs, fonts, CDN resources, and images.
 
-The website will open in your browser.
+## 🌍 APIs Used
 
-An internet connection is required for external APIs, fonts, CDN resources, and images.
+### 1. Mledoze Countries Dataset
 
-## 🌐 APIs Used
+Provides country information such as names, flags, capitals, geographical details, languages, currencies, and borders.
 
-### 1. Country Data API
+API: [Mledoze Countries Dataset](https://raw.githubusercontent.com/mledoze/countries/master/countries.json)
 
-Country information is retrieved from the Mledoze Countries dataset hosted on GitHub.
+### 2. CountriesNow Population API
 
-API URL:
+Provides population data for countries.
 
-https://raw.githubusercontent.com/mledoze/countries/master/countries.json
-
-### 2. Population Data API
-
-Population-related information is retrieved from the CountriesNow API.
-
-API URL:
-
-https://countriesnow.space/api/v0.1/countries/population
-
-The availability of country information depends on these external data sources.
+API: [CountriesNow Population API](https://countriesnow.space/api/v0.1/countries/population)
 
 ## 💾 Data Storage
 
-Favourites, comparison selections, and theme preferences are saved in the browser's local storage.
+HeyRomies uses the browser's Local Storage to save:
 
-These preferences are stored locally in the browser and are not synced between devices.
+- Favourite countries
+- Selected countries for comparison
+- Theme preference
 
-## ⚠️ Notes
+The saved data remains in the user's browser and is not automatically synced across devices.
 
-- The Trip Planner provides inspiration and country suggestions; it does not make bookings.
-- The newsletter interface requires a connected newsletter service to collect subscriptions.
-- Country and population data availability depends on the external APIs.
-- External images and CDN resources require an internet connection.
+## 📸 Screenshots
+
+Project screenshots will be added here.
 
 ## 🎨 Design Concept
 
-The website uses a vintage-inspired travel aesthetic, combining elegant serif typography, warm paper-like colours, earthy green accents, and terracotta details.
+HeyRomies follows a vintage editorial travel aesthetic with warm paper-inspired backgrounds, earthy green accents, terracotta details, and elegant typography.
 
-**Brand Line:** Old souls. New adventures.
+**Brand Line:** Collect moments, not just miles.
 
 ---
 
-Made for explorers who believe the journey is part of the story.
+Made for curious explorers and people who believe every country has a story to tell. 🌍
