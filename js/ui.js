@@ -130,8 +130,8 @@ export function renderCountryGrid(
               data-action="favorite"
               data-code="${code}"
               aria-label="${isFavorite
-                ? `Remove ${name} from favourites`
-                : `Add ${name} to favourites`}"
+          ? `Remove ${name} from favourites`
+          : `Add ${name} to favourites`}"
               aria-pressed="${isFavorite}"
               class="absolute right-4 top-4 flex h-10 w-10
                      items-center justify-center rounded-full
@@ -140,8 +140,8 @@ export function renderCountryGrid(
                      hover:text-white"
             >
               <i class="${isFavorite
-                ? "fa-solid"
-                : "fa-regular"} fa-heart"
+          ? "fa-solid"
+          : "fa-regular"} fa-heart"
                  aria-hidden="true"></i>
             </button>
           </div>
@@ -288,7 +288,7 @@ export function updateCompareBar(compareList = [], countries = []) {
   }
 }
 
-  export function openCountryDetails(country, allCountries = []) {
+export function openCountryDetails(country, allCountries = []) {
   if (!country) return;
 
   const modal = getElement("detailModal");
@@ -307,10 +307,9 @@ export function updateCompareBar(compareList = [], countries = []) {
   const languages = escapeHTML(formatLanguages(country.languages));
   const currencies = escapeHTML(formatCurrencies(country.currencies));
   const borderCountries = (country.borders || [])
-  .map((code) => allCountries.find((item) => item.code === code))
-  .filter(Boolean);
+    .map((code) => allCountries.find((item) => item.code === code))
+    .filter(Boolean);
   const flag = countryFlag(country);
-  const mapUrl = safeUrl(country.mapUrl);
 
   const timezones = escapeHTML(
     Array.isArray(country.timezones) && country.timezones.length
@@ -379,9 +378,8 @@ export function updateCompareBar(compareList = [], countries = []) {
   </p>
 
   <div class="mt-2 flex flex-wrap gap-2">
-    ${
-      borderCountries.length
-        ? borderCountries.map((borderCountry) => `
+    ${borderCountries.length
+      ? borderCountries.map((borderCountry) => `
             <button
               type="button"
               data-border-code="${escapeHTML(borderCountry.code)}"
@@ -393,7 +391,7 @@ export function updateCompareBar(compareList = [], countries = []) {
               ${escapeHTML(borderCountry.name)}
             </button>
           `).join("")
-        : '<span class="text-sm text-[#6B7068]">No border countries listed</span>'
+      : '<span class="text-sm text-[#6B7068]">No border countries listed</span>'
     }
   </div>
 </div>
@@ -401,29 +399,27 @@ export function updateCompareBar(compareList = [], countries = []) {
           ${detailRow("Continents", continents)}
           ${detailRow("Time zones", timezones)}
           ${detailRow(
-            "Independent",
-            country.independent ? "Yes" : "No / not listed"
-          )}
+      "Independent",
+      country.independent ? "Yes" : "No / not listed"
+    )}
           ${detailRow(
-            "Landlocked",
-            country.landlocked ? "Yes" : "No"
-          )}
+      "Landlocked",
+      country.landlocked ? "Yes" : "No"
+    )}
         </div>
 
-        ${mapUrl ? `
+             <div class="mt-6">
           <a
-            href="${escapeHTML(mapUrl)}"
+            href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(country.name)}"
             target="_blank"
             rel="noopener noreferrer"
-            class="mt-6 inline-flex items-center gap-2
-                   font-semibold text-[#193A2E]
-                   hover:text-[#B85F3E]"
+            class="inline-flex items-center gap-2 font-semibold text-[#193A2E] hover:text-[#B85F3E]"
           >
             View on Google Maps
             <i class="fa-solid fa-arrow-up-right-from-square"
                aria-hidden="true"></i>
           </a>
-        ` : ""}
+        </div>
       </div>
     </div>
   `;
@@ -523,19 +519,6 @@ export function openComparison(countries = []) {
     </div>
   `;
 
-  content.querySelectorAll("[data-border-code]").forEach((button) => {
-  button.addEventListener("click", () => {
-    const code = button.dataset.borderCode;
-
-    const borderCountry = allCountries.find(
-      (item) => item.code === code
-    );
-
-    if (borderCountry) {
-      openCountryDetails(borderCountry, allCountries);
-    }
-  });
-});
 
   modal.classList.remove("hidden");
   modal.setAttribute("aria-hidden", "false");
